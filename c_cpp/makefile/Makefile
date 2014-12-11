@@ -22,9 +22,6 @@ CCFLAGS= -Wall
 # bibliotecas usadas no projeto
 LIBDEPS=
 
-# gerar link simbólico do binário para a pasta raiz? YES ou NO
-BUILDLINK_TO_ROOT=YES
-
 ############ fim da configuração ###############################
 
 # nome do binário principal
@@ -42,11 +39,6 @@ MK_DIR= mkdir -p
 .PHONY: makedir_bin
 .PHONY: makedir_bin_tests
 
-# verifica se é necessário criar link simbólico para o binário
-ifeq ($(BUILDLINK_TO_ROOT),YES)
-    all: makedir_objects makedir_bin makedir_bin_tests $(BIN_DIR)$(BIN_NAME) makeLinkToBin
-endif
-
 # comando principal
 all: makedir_objects makedir_bin makedir_bin_tests $(BIN_DIR)$(BIN_NAME)
 
@@ -61,10 +53,6 @@ makedir_bin:
 # cria diretório para binário de testes
 makedir_bin_tests:
 	$(MK_DIR) $(BIN_TESTS_DIR)
-
-# gera link simbólico para binário
-makeLinkToBin:
-	ln -nsf $(BIN_DIR)$(BIN_NAME) $(BIN_NAME)
 
 # criação do binário principal
 $(BIN_DIR)$(BIN_NAME): $(OBJ_LIST)
@@ -86,7 +74,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.$(SRC_SUFFIX)
 .PHONY: clean
 # comando para limpar tudo
 clean:
-	rm -rf $(OBJ_DIR)*.o $(OBJ_DIR)*.d $(BIN_TESTS_DIR)* $(BIN_DIR)$(BIN_NAME) $(BIN_NAME)
+	rm -rf $(OBJ_DIR)*.o $(OBJ_DIR)*.d $(BIN_TESTS_DIR)* $(BIN_DIR)$(BIN_NAME)
 
 # exemplo de teste:
 #
