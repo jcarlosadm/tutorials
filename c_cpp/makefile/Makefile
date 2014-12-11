@@ -33,7 +33,7 @@ SRC_LIST= $(wildcard $(SRC_DIR)*.$(SRC_SUFFIX))
 OBJ_LIST:= $(patsubst $(SRC_DIR)%.$(SRC_SUFFIX),$(OBJ_DIR)%.o, $(SRC_LIST))
 
 # comando para criar diretórios
-MK_DIR= mkdir -p
+MK_DIR= @mkdir -p
 
 .PHONY: makedir_objects
 .PHONY: makedir_bin
