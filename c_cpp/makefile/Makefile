@@ -70,7 +70,7 @@ makeLinkToBin:
 $(BIN_DIR)$(BIN_NAME): $(OBJ_LIST)
 	$(CC) -o $@ $^ $(LIBDEPS)
 
-# pull in dependency info for *existing* .o files
+# Coloca todas as informações de dependências nos arquivos '.o' existentes
 -include $(OBJ_LIST:.o=.d)
 
 # comando da construção de cada arquivo de objeto
