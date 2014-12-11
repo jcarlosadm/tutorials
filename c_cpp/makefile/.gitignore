@@ -1,0 +1,11 @@
+bin
+/bin
+./bin
+/bin/*
+objects
+/objects
+./objects
+/objects/*
+
+main
+
