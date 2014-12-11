@@ -86,7 +86,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.$(SRC_SUFFIX)
 .PHONY: clean
 # comando para limpar tudo
 clean:
-	rm -rf $(OBJ_DIR)*.o $(OBJ_DIR)*.d $(BIN_TESTS_DIR)* $(BIN_DIR)$(BIN_NAME) main
+	rm -rf $(OBJ_DIR)*.o $(OBJ_DIR)*.d $(BIN_TESTS_DIR)* $(BIN_DIR)$(BIN_NAME) $(BIN_NAME)
 
 # exemplo de teste:
 #
