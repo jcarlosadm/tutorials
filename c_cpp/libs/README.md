@@ -37,7 +37,7 @@ requisitos:
 
 1. Os header files precisam estar na pasta padrão para includes do sistema. No linux, essa pasta é **/usr/local/include/**. Procure nomear adequadamente possíveis subpastas para não confundir com outros arquivos.
 
-2. O arquivo da biblioteca (terminado em .so para linux ou .dll ou .dll.a para windows) precisa estar na pasta padrão do sistema para bibliotecas. No linux, essa pasta é **/usr/local/lib/**.
+2. O arquivo da biblioteca (terminado em .so para linux ou .dll ou .dll.a para windows) precisa estar na pasta padrão do sistema para bibliotecas. No linux, essa pasta é **/usr/local/lib/**. Geralmente é necessário criar um link simbólico do arquivo para a pasta **/usr/lib/**.
 
 3. Cada arquivo que fizer uso da bilioteca precisa dar include no header file correto. Por exemplo, `#include <mylib/shock.hpp>`. O sistema irá procurar esses header files na pasta padrão.
 
