@@ -27,6 +27,13 @@ antes de executar o binário, faça:
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/./
 ```
 
+Ou crie um arquivo **run.sh** (para linux) com o seguinte conteúdo (execute esse arquivo com `bash run.sh`):
+
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/./
+./main
+```
+
 Se a biblioteca for alterada, não é necessário recompilar o programa
 
 -------------------------------------------------------------------------------------
