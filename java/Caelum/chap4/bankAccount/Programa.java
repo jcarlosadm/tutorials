@@ -19,6 +19,17 @@ class Conta{
     void deposita(double quantidade){
         this.saldo += quantidade;
     }
+    
+    boolean transfere(Conta destino, double valor){
+        boolean retirou = this.saca(valor);
+        
+        if(retirou == false)
+            return false;
+        else{
+            destino.deposita(valor);
+            return true;
+        }
+    }
 }
 
 class Programa{
@@ -36,6 +47,17 @@ class Programa{
         }
         
         minhaConta.deposita(500);
+        
+        Conta outraConta = new Conta();
+        
+        outraConta.dono = "Ze";
+        outraConta.saldo = 200;
+        
+        if(minhaConta.transfere(outraConta,500)==true){
+            System.out.println("saldo outraConta: "+outraConta.saldo);
+        }else{
+            System.out.println("não conseguiu transferir para a outraConta");
+        }
         
         System.out.println("Saldo atual: "+minhaConta.saldo);
     }
