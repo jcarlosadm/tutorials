@@ -61,6 +61,15 @@ class Employee{
     public double getAnualSalary(){
         return this.getSalary()*12;
     }
+    
+    public void mostra(){
+        System.out.println("data que começou: "+this.dateBegin);
+        System.out.println("departamento: "+this.departament);
+        System.out.println("id: "+this.id);
+        System.out.println("nome: "+this.name);
+        System.out.println("salário: "+this.salary);
+        System.out.println("salário anual: "+this.getAnualSalary());
+    }
 }
 
 public class testEmployee{
@@ -73,5 +82,9 @@ public class testEmployee{
         System.out.format("%10.2f%n", emp1.getSalary());
         System.out.print("Salário anual: R$ ");
         System.out.format("%10.2f%n", emp1.getAnualSalary());
+        
+        System.out.println("Atributos:");
+        emp1.mostra();
+        
     }
 }
