@@ -8,11 +8,14 @@ import java.io.OutputStreamWriter;
 
 public class Main {
     public static void main(String[] args) throws IOException{
-        OutputStream os = new FileOutputStream("saida");
+        OutputStream os = new FileOutputStream("saida",false);
         OutputStreamWriter osw = new OutputStreamWriter(os);
         BufferedWriter bw = new BufferedWriter(osw);
         
         bw.write("ola");
+        bw.append("\n");
+        bw.newLine();
+        bw.write("hello");
         
         bw.close();
     }
