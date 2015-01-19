@@ -3,7 +3,7 @@
  *
  */
 
-#include "../../hpp_files/quack/MuteQuack.hpp"
+#include "MuteQuack.hpp"
 
 MuteQuack::MuteQuack(){}
 MuteQuack::~MuteQuack(){}

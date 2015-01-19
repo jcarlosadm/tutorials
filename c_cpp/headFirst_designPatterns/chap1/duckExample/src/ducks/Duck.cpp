@@ -3,7 +3,7 @@
  *
  */
 
-#include "../../hpp_files/ducks/Duck.hpp"
+#include "Duck.hpp"
 
 Duck::Duck(){
     flyBehavior = NULL;

@@ -3,7 +3,7 @@
  *
  */
 
-#include "../../hpp_files/fly/FlyWithWings.hpp"
+#include "FlyWithWings.hpp"
 
 FlyWithWings::FlyWithWings(){}
 FlyWithWings::~FlyWithWings(){}

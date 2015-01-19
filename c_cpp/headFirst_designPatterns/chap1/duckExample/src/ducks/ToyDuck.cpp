@@ -3,7 +3,7 @@
  *
  */
 
-#include "../../hpp_files/ducks/ToyDuck.hpp"
+#include "ToyDuck.hpp"
 
 ToyDuck::ToyDuck(){
     flyBehavior = new FlyNoWay();

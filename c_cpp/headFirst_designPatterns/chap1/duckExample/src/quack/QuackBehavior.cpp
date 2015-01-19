@@ -3,7 +3,7 @@
  *
  */
 
-#include "../../hpp_files/quack/QuackBehavior.hpp"
+#include "QuackBehavior.hpp"
 
 QuackBehavior::QuackBehavior(){}
 QuackBehavior::~QuackBehavior(){}

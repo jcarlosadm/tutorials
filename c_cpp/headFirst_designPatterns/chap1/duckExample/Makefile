@@ -16,7 +16,7 @@ SRC_TESTS_DIR= srcTests/
 # diretório dos arquivos fontes
 SRC_DIR= src/
 # diretório dos arquivos de cabeçalho
-HPP_DIR= hpp_files/
+HPP_DIR= src/
 
 # as flags e opções usadas
 # compilador
@@ -38,9 +38,9 @@ LIBRARY_NAME=
 BIN_NAME= main
 
 # obtém uma lista de todos os arquivos fontes
-SRC_LIST= $(wildcard **/**/*.$(SRC_SUFFIX))
+SRC_LIST= $(wildcard $(SRC_DIR)**/*.$(SRC_SUFFIX))
 # obtém uma lista de todos os header files
-HPP_LIST= $(wildcard **/**/*.$(HPP_SUFFIX))
+HPP_LIST= $(wildcard $(HPP_DIR)**/*.$(HPP_SUFFIX))
 # obtém uma lista de todos os arquivos objetos a serem criados
 OBJ_LIST:= $(patsubst $(SRC_DIR)%.$(SRC_SUFFIX),$(OBJ_DIR)%.o, $(SRC_LIST))
 

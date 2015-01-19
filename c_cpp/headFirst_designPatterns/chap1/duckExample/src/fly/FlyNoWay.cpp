@@ -3,7 +3,7 @@
  *
  */
 
-#include "../../hpp_files/fly/FlyNoWay.hpp"
+#include "FlyNoWay.hpp"
 
 FlyNoWay::FlyNoWay(){}
 FlyNoWay::~FlyNoWay(){}

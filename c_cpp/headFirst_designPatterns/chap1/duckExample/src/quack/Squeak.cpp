@@ -3,7 +3,7 @@
  *
  */
 
-#include "../../hpp_files/quack/Squeak.hpp"
+#include "Squeak.hpp"
 
 Squeak::Squeak(){}
 Squeak::~Squeak(){}
