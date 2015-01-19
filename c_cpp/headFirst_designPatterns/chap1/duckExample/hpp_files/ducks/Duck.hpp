@@ -6,8 +6,8 @@
 #ifndef DUCK_HPP_
 #define DUCK_HPP_
 
-#include "FlyBehavior.hpp"
-#include "QuackBehavior.hpp"
+#include "../fly/FlyBehavior.hpp"
+#include "../quack/QuackBehavior.hpp"
 
 class Duck{
 protected:

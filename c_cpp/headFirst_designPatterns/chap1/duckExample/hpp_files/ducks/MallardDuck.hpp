@@ -11,13 +11,11 @@
 #include <new>
 
 #include "Duck.hpp"
-#include "FlyBehavior.hpp"
-#include "FlyWithWings.hpp"
-#include "FlyNoWay.hpp"
-#include "QuackBehavior.hpp"
-#include "Quack.hpp"
-#include "MuteQuack.hpp"
-#include "Squeak.hpp"
+#include "../fly/FlyWithWings.hpp"
+#include "../fly/FlyNoWay.hpp"
+#include "../quack/Quack.hpp"
+#include "../quack/MuteQuack.hpp"
+#include "../quack/Squeak.hpp"
 
 class MallardDuck : public Duck{
 public:

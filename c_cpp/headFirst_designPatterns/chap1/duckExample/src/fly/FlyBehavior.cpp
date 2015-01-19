@@ -3,7 +3,7 @@
  *
  */
 
-#include "../hpp_files/FlyBehavior.hpp"
+#include "../../hpp_files/fly/FlyBehavior.hpp"
 
 FlyBehavior::FlyBehavior(){}
 FlyBehavior::~FlyBehavior(){}

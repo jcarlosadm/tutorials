@@ -3,7 +3,7 @@
  *
  */
 
-#include "../hpp_files/Quack.hpp"
+#include "../../hpp_files/quack/Quack.hpp"
 
 Quack::Quack(){}
 Quack::~Quack(){}

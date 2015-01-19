@@ -7,9 +7,9 @@
 #include <new>
 using namespace std;
 
-#include "../hpp_files/Duck.hpp"
-#include "../hpp_files/MallardDuck.hpp"
-#include "../hpp_files/ToyDuck.hpp"
+#include "../../hpp_files/ducks/Duck.hpp"
+#include "../../hpp_files/ducks/MallardDuck.hpp"
+#include "../../hpp_files/ducks/ToyDuck.hpp"
 
 int main(int argc, char **argv) {
 

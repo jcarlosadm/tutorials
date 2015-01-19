@@ -3,7 +3,7 @@
  *
  */
 
-#include "../hpp_files/MallardDuck.hpp"
+#include "../../hpp_files/ducks/MallardDuck.hpp"
 
 MallardDuck::MallardDuck(){
     quackBehavior = new Quack();
