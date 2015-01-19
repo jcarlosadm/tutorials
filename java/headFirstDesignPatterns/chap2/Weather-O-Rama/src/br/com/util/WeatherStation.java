@@ -1,4 +1,7 @@
-package br.com.weather;
+package br.com.util;
+
+import br.com.weather.withapi.CurrentConditionsDisplay;
+import br.com.weather.withapi.WeatherData;
 
 public class WeatherStation {
     public static void main(String[] args) {
