@@ -10,6 +10,7 @@ using namespace std;
 #include "../ducks/Duck.hpp"
 #include "../ducks/MallardDuck.hpp"
 #include "../ducks/ToyDuck.hpp"
+#include "../ducks/WhiteDuck.hpp"
 
 int main(int argc, char **argv) {
 
@@ -32,6 +33,13 @@ int main(int argc, char **argv) {
     cout<<"Toy Test"<<endl;
     toy->performFly();
     toy->performQuack();
+    cout<<endl;
+
+    // White Duck test
+    Duck* whiteDuck = new WhiteDuck();
+    cout<<"WhiteDuck test"<<endl;
+    whiteDuck->performFly();
+    whiteDuck->performQuack();
     cout<<endl;
 }
 
