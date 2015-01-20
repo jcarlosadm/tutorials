@@ -2,7 +2,11 @@ package ch.makery.address;
 
 import java.io.IOException;
 
+import ch.makery.address.model.Person;
+import ch.makery.address.view.PersonOverviewController;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -13,6 +17,31 @@ public class MainApp extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
+    
+    /**
+     * Lista de Persons
+     */
+    private ObservableList<Person> personData = FXCollections.observableArrayList();
+    
+    /**
+     * Construtor
+     */
+    public MainApp() {
+        // sample data
+        this.personData.add(new Person("Hans","Muster"));
+        this.personData.add(new Person("Ruth","Mueler"));
+        this.personData.add(new Person("Heinz","Kurz"));
+        this.personData.add(new Person("Cornelia","Meier"));
+        this.personData.add(new Person("Werner","Meye"));
+    }
+    
+    /**
+     * Retorna lista de Persons
+     * @return
+     */
+    public ObservableList<Person> getPersonData(){
+        return this.personData;
+    }
     
 	@Override
 	public void start(Stage primaryStage) {
@@ -55,6 +84,11 @@ public class MainApp extends Application {
 	        
 	        // define o person overview dentro do root layout
 	        rootLayout.setCenter(personOverview);
+	        
+	        // dá ao controlador acesso ao main app
+	        PersonOverviewController controller = loader.getController();
+	        controller.setMainApp(this);
+	        
         } catch (IOException e) {
             e.printStackTrace();
         }
