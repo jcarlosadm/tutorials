@@ -9,13 +9,13 @@
 #define MUTEQUACK_HPP_
 
 #include "QuackBehavior.hpp"
-
+namespace quack{
 class MuteQuack : public QuackBehavior{
 public:
     MuteQuack();
     ~MuteQuack();
     void quack();
 };
-
+};
 
 #endif /* MUTEQUACK_HPP_ */

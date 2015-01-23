@@ -5,9 +5,11 @@
 
 #include "WhiteDuck.hpp"
 
+namespace ducks{
+
 WhiteDuck::WhiteDuck() {
-    flyBehavior = new FlyWithWings();
-    quackBehavior = new Squeak();
+    flyBehavior = new fly::FlyWithWings();
+    quackBehavior = new quack::Squeak();
 }
 
 WhiteDuck::~WhiteDuck() {
@@ -16,3 +18,5 @@ WhiteDuck::~WhiteDuck() {
 }
 
 void WhiteDuck::notFly(){}
+
+};

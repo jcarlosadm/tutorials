@@ -5,9 +5,11 @@
 
 #include "ToyDuck.hpp"
 
+namespace ducks{
+
 ToyDuck::ToyDuck(){
-    flyBehavior = new FlyNoWay();
-    quackBehavior = new MuteQuack();
+    flyBehavior = new fly::FlyNoWay();
+    quackBehavior = new quack::MuteQuack();
 }
 
 ToyDuck::~ToyDuck(){
@@ -16,3 +18,5 @@ ToyDuck::~ToyDuck(){
 }
 
 void ToyDuck::notFly(){}
+
+};

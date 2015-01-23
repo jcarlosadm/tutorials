@@ -5,9 +5,11 @@
 
 #include "MallardDuck.hpp"
 
+namespace ducks{
+
 MallardDuck::MallardDuck(){
-    quackBehavior = new Quack();
-    flyBehavior = new FlyWithWings();
+    quackBehavior = new quack::Quack();
+    flyBehavior = new fly::FlyWithWings();
 }
 
 MallardDuck::~MallardDuck(){
@@ -17,5 +19,7 @@ MallardDuck::~MallardDuck(){
 
 void MallardDuck::notFly(){
     delete flyBehavior;
-    flyBehavior = new FlyNoWay();
+    flyBehavior = new fly::FlyNoWay();
 }
+
+};

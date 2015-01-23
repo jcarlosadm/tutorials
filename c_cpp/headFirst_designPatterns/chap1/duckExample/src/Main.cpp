@@ -7,15 +7,15 @@
 #include <new>
 using namespace std;
 
-#include "../ducks/Duck.hpp"
-#include "../ducks/MallardDuck.hpp"
-#include "../ducks/ToyDuck.hpp"
-#include "../ducks/WhiteDuck.hpp"
+#include "Duck.hpp"
+#include "MallardDuck.hpp"
+#include "ToyDuck.hpp"
+#include "WhiteDuck.hpp"
 
 int main(int argc, char **argv) {
 
     // Mallard Duck Test
-    Duck* mallard = new MallardDuck();
+    ducks::Duck* mallard = new ducks::MallardDuck();
     cout<<"Mallard Duck test"<<endl;
     mallard->performFly();
     mallard->performQuack();
@@ -29,14 +29,14 @@ int main(int argc, char **argv) {
     cout<<endl;
 
     // ToyDuck Test
-    Duck* toy = new ToyDuck();
+    ducks::Duck* toy = new ducks::ToyDuck();
     cout<<"Toy Test"<<endl;
     toy->performFly();
     toy->performQuack();
     cout<<endl;
 
     // White Duck test
-    Duck* whiteDuck = new WhiteDuck();
+    ducks::Duck* whiteDuck = new ducks::WhiteDuck();
     cout<<"WhiteDuck test"<<endl;
     whiteDuck->performFly();
     whiteDuck->performQuack();

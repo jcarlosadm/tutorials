@@ -6,13 +6,15 @@
 #ifndef DUCK_HPP_
 #define DUCK_HPP_
 
-#include "../fly/FlyBehavior.hpp"
-#include "../quack/QuackBehavior.hpp"
+#include "FlyBehavior.hpp"
+#include "QuackBehavior.hpp"
+
+namespace ducks{
 
 class Duck{
 protected:
-    FlyBehavior* flyBehavior;
-    QuackBehavior* quackBehavior;
+    fly::FlyBehavior* flyBehavior;
+    quack::QuackBehavior* quackBehavior;
 public:
     Duck();
     virtual ~Duck();
@@ -20,5 +22,7 @@ public:
     void performQuack();
     virtual void notFly()=0;
 };
+
+}; // namespace ducks //
 
 #endif /* DUCK_HPP_ */

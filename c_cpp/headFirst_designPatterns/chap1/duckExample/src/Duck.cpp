@@ -5,6 +5,8 @@
 
 #include "Duck.hpp"
 
+namespace ducks{
+
 Duck::Duck(){
     flyBehavior = NULL;
     quackBehavior = NULL;
@@ -19,3 +21,5 @@ void Duck::performFly(){
 void Duck::performQuack(){
     quackBehavior->quack();
 }
+
+}; // namespace ducks //

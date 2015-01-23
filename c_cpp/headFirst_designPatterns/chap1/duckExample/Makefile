@@ -38,9 +38,9 @@ LIBRARY_NAME=
 BIN_NAME= main
 
 # obtém uma lista de todos os arquivos fontes
-SRC_LIST= $(wildcard $(SRC_DIR)**/*.$(SRC_SUFFIX))
+SRC_LIST= $(wildcard $(SRC_DIR)*.$(SRC_SUFFIX))
 # obtém uma lista de todos os header files
-HPP_LIST= $(wildcard $(HPP_DIR)**/*.$(HPP_SUFFIX))
+HPP_LIST= $(wildcard $(HPP_DIR)*.$(HPP_SUFFIX))
 # obtém uma lista de todos os arquivos objetos a serem criados
 OBJ_LIST:= $(patsubst $(SRC_DIR)%.$(SRC_SUFFIX),$(OBJ_DIR)%.o, $(SRC_LIST))
 
@@ -61,10 +61,6 @@ endif
 # cria diretório dos objetos
 makedir_objects:
 	$(MK_DIR) $(OBJ_DIR)
-	$(MK_DIR) $(OBJ_DIR)/fly/
-	$(MK_DIR) $(OBJ_DIR)/quack/
-	$(MK_DIR) $(OBJ_DIR)/ducks/
-	$(MK_DIR) $(OBJ_DIR)/main/
 
 # cria diretório dos binários
 makedir_bin:

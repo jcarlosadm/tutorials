@@ -10,13 +10,13 @@
 
 #include <iostream>
 using namespace std;
-
+namespace quack{
 class QuackBehavior{
 public:
     QuackBehavior();
     virtual ~QuackBehavior();
     virtual void quack()=0;
 };
-
+};
 
 #endif /* QUACKBEHAVIOR_HPP_ */

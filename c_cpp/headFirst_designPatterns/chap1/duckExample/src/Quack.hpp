@@ -9,12 +9,12 @@
 #define QUACK_HPP_
 
 #include "QuackBehavior.hpp"
-
+namespace quack{
 class Quack : public QuackBehavior{
 public:
     Quack();
     ~Quack();
     void quack();
 };
-
+};
 #endif /* QUACK_HPP_ */
