@@ -1,7 +1,7 @@
-bin
-bin/
+debug
+debug/
+release
+release/
 .settings
 .cproject
 .project
-objects
-objects/
