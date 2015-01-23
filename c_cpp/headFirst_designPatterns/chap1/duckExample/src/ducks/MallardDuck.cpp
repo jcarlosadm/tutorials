@@ -10,7 +10,10 @@ MallardDuck::MallardDuck(){
     flyBehavior = new FlyWithWings();
 }
 
-MallardDuck::~MallardDuck(){}
+MallardDuck::~MallardDuck(){
+    delete quackBehavior;
+    delete flyBehavior;
+}
 
 void MallardDuck::notFly(){
     delete flyBehavior;

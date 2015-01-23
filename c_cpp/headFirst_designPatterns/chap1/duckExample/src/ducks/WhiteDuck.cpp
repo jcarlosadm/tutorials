@@ -10,6 +10,9 @@ WhiteDuck::WhiteDuck() {
     quackBehavior = new Squeak();
 }
 
-WhiteDuck::~WhiteDuck() {}
+WhiteDuck::~WhiteDuck() {
+    delete flyBehavior;
+    delete quackBehavior;
+}
 
 void WhiteDuck::notFly(){}

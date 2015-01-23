@@ -10,6 +10,9 @@ ToyDuck::ToyDuck(){
     quackBehavior = new MuteQuack();
 }
 
-ToyDuck::~ToyDuck(){}
+ToyDuck::~ToyDuck(){
+    delete flyBehavior;
+    delete quackBehavior;
+}
 
 void ToyDuck::notFly(){}

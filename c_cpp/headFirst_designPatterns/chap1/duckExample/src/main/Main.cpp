@@ -41,5 +41,11 @@ int main(int argc, char **argv) {
     whiteDuck->performFly();
     whiteDuck->performQuack();
     cout<<endl;
+
+    delete mallard;
+    delete toy;
+    delete whiteDuck;
+
+    return 0;
 }
 
