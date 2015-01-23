@@ -14,6 +14,6 @@ public:
     ~FlyWithWings();
     void fly();
 };
-};
+}
 
 #endif /* FLYWITHWINGS_HPP_ */

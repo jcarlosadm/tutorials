@@ -26,6 +26,6 @@ public:
     void notFly();
 };
 
-};
+}
 
 #endif /* TOYDUCK_HPP_ */

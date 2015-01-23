@@ -24,6 +24,6 @@ public:
     void notFly();
 };
 
-};
+}
 
 #endif /* WHITEDUCK_HPP_ */

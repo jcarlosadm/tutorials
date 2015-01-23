@@ -16,6 +16,6 @@ public:
     ~MuteQuack();
     void quack();
 };
-};
+}
 
 #endif /* MUTEQUACK_HPP_ */

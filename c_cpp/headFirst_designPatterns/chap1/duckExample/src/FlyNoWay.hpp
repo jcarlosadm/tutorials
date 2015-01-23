@@ -14,6 +14,6 @@ public:
     ~FlyNoWay();
     void fly();
 };
-};
+}
 
 #endif /* FLYNOWAY_HPP_ */

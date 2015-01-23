@@ -17,6 +17,6 @@ public:
     virtual ~QuackBehavior();
     virtual void quack()=0;
 };
-};
+}
 
 #endif /* QUACKBEHAVIOR_HPP_ */

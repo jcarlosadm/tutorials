@@ -23,6 +23,6 @@ public:
     virtual void notFly()=0;
 };
 
-}; // namespace ducks //
+} // namespace ducks //
 
 #endif /* DUCK_HPP_ */

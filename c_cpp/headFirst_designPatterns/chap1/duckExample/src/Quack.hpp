@@ -16,5 +16,5 @@ public:
     ~Quack();
     void quack();
 };
-};
+}
 #endif /* QUACK_HPP_ */

@@ -16,5 +16,5 @@ public:
     ~Squeak();
     void quack();
 };
-};
+}
 #endif /* SQUEAK_HPP_ */

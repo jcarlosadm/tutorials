@@ -7,4 +7,4 @@
 namespace quack{
 QuackBehavior::QuackBehavior(){}
 QuackBehavior::~QuackBehavior(){}
-};
+}

@@ -26,6 +26,6 @@ public:
     void notFly();
 };
 
-};
+}
 
 #endif /* MALLARDDUCK_HPP_ */

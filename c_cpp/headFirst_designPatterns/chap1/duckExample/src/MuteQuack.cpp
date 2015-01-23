@@ -12,4 +12,4 @@ MuteQuack::~MuteQuack(){}
 void MuteQuack::quack(){
     cout<<"<< silence >>"<<endl;
 }
-};
+}

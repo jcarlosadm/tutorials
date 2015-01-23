@@ -19,4 +19,4 @@ ToyDuck::~ToyDuck(){
 
 void ToyDuck::notFly(){}
 
-};
+}

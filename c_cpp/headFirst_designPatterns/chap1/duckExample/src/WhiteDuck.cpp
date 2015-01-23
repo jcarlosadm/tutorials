@@ -19,4 +19,4 @@ WhiteDuck::~WhiteDuck() {
 
 void WhiteDuck::notFly(){}
 
-};
+}

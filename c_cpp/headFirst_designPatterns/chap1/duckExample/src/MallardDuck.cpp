@@ -22,4 +22,4 @@ void MallardDuck::notFly(){
     flyBehavior = new fly::FlyNoWay();
 }
 
-};
+}

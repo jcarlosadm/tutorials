@@ -10,4 +10,4 @@ namespace fly{
 FlyBehavior::FlyBehavior(){}
 FlyBehavior::~FlyBehavior(){}
 
-};
+}

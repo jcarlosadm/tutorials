@@ -17,6 +17,6 @@ public:
     virtual ~FlyBehavior();
     virtual void fly()=0;
 };
-};
+}
 
 #endif /* FLYBEHAVIOR_HPP_ */
