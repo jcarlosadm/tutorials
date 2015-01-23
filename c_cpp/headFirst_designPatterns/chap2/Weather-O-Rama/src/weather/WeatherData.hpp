@@ -14,10 +14,9 @@
 #include "../observer_api/Object.hpp"
 
 using namespace observer_api;
+using std::list;
 
 namespace weather{
-
-using std::list;
 
 class WeatherData : public Observable {
 

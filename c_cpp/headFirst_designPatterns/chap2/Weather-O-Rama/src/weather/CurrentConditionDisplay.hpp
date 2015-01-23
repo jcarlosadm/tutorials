@@ -15,13 +15,12 @@
 #include "DisplayElement.hpp"
 #include "WeatherData.hpp"
 
-using namespace observer_api;
-
-namespace weather{
-
 using std::cout;
 using std::endl;
 using std::string;
+using namespace observer_api;
+
+namespace weather{
 
 class CurrentConditionDisplay : public Observer, DisplayElement {
 
