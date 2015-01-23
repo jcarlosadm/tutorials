@@ -4,7 +4,7 @@
  */
 
 #include "CurrentConditionDisplay.hpp"
-
+namespace weather{
 CurrentConditionDisplay::CurrentConditionDisplay(const char* name) {
     temperature = 0;
     humidity = 0;
@@ -25,4 +25,5 @@ void CurrentConditionDisplay::update(Object* obs){
         humidity = data->getHumidity();
         display();
     }
+}
 }

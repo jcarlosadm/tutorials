@@ -8,11 +8,16 @@
 
 #include <iostream>
 #include <list>
-using std::list;
 
 #include "../observer_api/Observable.hpp"
 #include "../observer_api/Observer.hpp"
 #include "../observer_api/Object.hpp"
+
+using namespace observer_api;
+
+namespace weather{
+
+using std::list;
 
 class WeatherData : public Observable {
 
@@ -33,5 +38,5 @@ public:
     float getHumidity();
     float getPressure();
 };
-
+}
 #endif /* WEATHERDATA_HPP_ */

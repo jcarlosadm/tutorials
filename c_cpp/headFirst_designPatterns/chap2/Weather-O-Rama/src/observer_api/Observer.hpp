@@ -8,11 +8,13 @@
 
 #include "Object.hpp"
 
+namespace observer_api{
+
 class Observer: public Object {
 public:
     Observer();
     virtual ~Observer();
     virtual void update(Object* observable)=0;
 };
-
+}
 #endif /* OBSERVER_HPP_ */

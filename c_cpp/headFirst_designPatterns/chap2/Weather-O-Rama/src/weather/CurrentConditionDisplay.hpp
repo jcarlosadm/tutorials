@@ -8,15 +8,20 @@
 
 #include <iostream>
 #include <string>
-using std::cout;
-using std::endl;
-using std::string;
 
 #include "../observer_api/Observer.hpp"
 #include "../observer_api/Observable.hpp"
 #include "../observer_api/Object.hpp"
 #include "DisplayElement.hpp"
 #include "WeatherData.hpp"
+
+using namespace observer_api;
+
+namespace weather{
+
+using std::cout;
+using std::endl;
+using std::string;
 
 class CurrentConditionDisplay : public Observer, DisplayElement {
 
@@ -30,5 +35,5 @@ public:
     void display();
     void update(Object* obs);
 };
-
+}
 #endif /* CURRENTCONDITIONDISPLAY_HPP_ */

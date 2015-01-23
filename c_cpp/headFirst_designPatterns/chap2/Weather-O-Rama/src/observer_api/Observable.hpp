@@ -8,6 +8,8 @@
 
 #include "Object.hpp"
 
+namespace observer_api{
+
 class Observable: public Object {
 public:
     Observable();
@@ -16,5 +18,5 @@ public:
     virtual void removeObserver(Object* observer)=0;
     virtual void notifyObservers()=0;
 };
-
+}
 #endif /* OBSERVABLE_HPP_ */

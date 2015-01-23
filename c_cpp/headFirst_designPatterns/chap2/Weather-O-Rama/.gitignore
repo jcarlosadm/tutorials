@@ -1,7 +1,5 @@
-bin
-bin/
 .settings
 .cproject
 .project
-objects
-objects/
+Debug
+/Debug/

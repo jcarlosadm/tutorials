@@ -4,10 +4,12 @@
  */
 
 #include <iostream>
-using namespace std;
 
-#include "../weather/WeatherData.hpp"
-#include "../weather/CurrentConditionDisplay.hpp"
+#include "weather/WeatherData.hpp"
+#include "weather/CurrentConditionDisplay.hpp"
+
+using namespace observer_api;
+using namespace weather;
 
 int main(int argc, char **argv) {
     WeatherData weatherdata(0,0,0);

@@ -5,6 +5,8 @@
 
 #include "WeatherData.hpp"
 
+namespace weather{
+
 WeatherData::WeatherData(float temp, float pres, float hum) {
     temperature = temp;
     pressure = pres;
@@ -71,4 +73,5 @@ float WeatherData::getHumidity(){
 
 float WeatherData::getPressure(){
     return pressure;
+}
 }
