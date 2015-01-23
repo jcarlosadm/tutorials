@@ -7,10 +7,10 @@
 #include <new>
 using namespace std;
 
-#include "Duck.hpp"
-#include "MallardDuck.hpp"
-#include "ToyDuck.hpp"
-#include "WhiteDuck.hpp"
+#include "ducks/Duck.hpp"
+#include "ducks/MallardDuck.hpp"
+#include "ducks/ToyDuck.hpp"
+#include "ducks/WhiteDuck.hpp"
 
 int main(int argc, char **argv) {
 

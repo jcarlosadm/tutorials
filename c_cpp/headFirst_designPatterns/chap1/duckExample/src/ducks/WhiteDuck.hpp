@@ -9,11 +9,11 @@
 #include <new>
 
 #include "Duck.hpp"
-#include "FlyWithWings.hpp"
-#include "FlyNoWay.hpp"
-#include "Quack.hpp"
-#include "MuteQuack.hpp"
-#include "Squeak.hpp"
+#include "../fly_behavior/FlyWithWings.hpp"
+#include "../fly_behavior/FlyNoWay.hpp"
+#include "../quack_behavior/Quack.hpp"
+#include "../quack_behavior/MuteQuack.hpp"
+#include "../quack_behavior/Squeak.hpp"
 
 namespace ducks{
 

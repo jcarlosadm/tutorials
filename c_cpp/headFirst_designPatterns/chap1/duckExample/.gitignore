@@ -1,7 +1,7 @@
-debug
-debug/
-release
-release/
 .settings
 .cproject
 .project
+Debug
+/Debug/
+Release
+/Release/

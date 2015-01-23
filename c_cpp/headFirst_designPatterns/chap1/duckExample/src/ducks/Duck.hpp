@@ -6,8 +6,8 @@
 #ifndef DUCK_HPP_
 #define DUCK_HPP_
 
-#include "FlyBehavior.hpp"
-#include "QuackBehavior.hpp"
+#include "../fly_behavior/FlyBehavior.hpp"
+#include "../quack_behavior/QuackBehavior.hpp"
 
 namespace ducks{
 
