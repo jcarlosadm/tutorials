@@ -19,8 +19,10 @@ void CurrentConditionDisplay::display(){
 }
 
 void CurrentConditionDisplay::update(Object* obs){
-    WeatherData* data = (WeatherData*) obs;
-    temperature = data->getTemperature();
-    humidity = data->getHumidity();
-    display();
+    WeatherData* data = dynamic_cast<WeatherData*>(obs);
+    if(data != 0){
+        temperature = data->getTemperature();
+        humidity = data->getHumidity();
+        display();
+    }
 }

@@ -14,19 +14,29 @@ WeatherData::WeatherData(float temp, float pres, float hum) {
 WeatherData::~WeatherData() {}
 
 void WeatherData::addObserver(Object* observer){
+
+    Observer* observerData = dynamic_cast<Observer*>(observer);
+    if(observerData == 0)
+        return;
+
     list<Observer*>::iterator it;
     for(it=observers.begin(); it!=observers.end();it++){
-        if((*it) == (Observer*) observer){
+        if((*it) == observerData){
             return;
         }
     }
-    observers.push_front((Observer*) observer);
+    observers.push_front(observerData);
 }
 
 void WeatherData::removeObserver(Object* observer){
+
+    Observer* observerData = dynamic_cast<Observer*>(observer);
+    if(observerData == 0)
+        return;
+
     list<Observer*>::iterator it;
     for(it=observers.begin(); it!=observers.end();it++){
-        if((*it) == (Observer*) observer){
+        if((*it) == observerData){
             it = observers.erase(it);
             return;
         }
