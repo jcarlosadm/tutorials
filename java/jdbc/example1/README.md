@@ -47,3 +47,5 @@ create table contatos (
   dataNascimento DATE
 );
 ```
+
+Exemplo testado no eclipse. Os arquivos *jar* desta pasta devem estar no *classpath* do projeto.
