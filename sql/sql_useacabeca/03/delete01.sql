@@ -1,0 +1,3 @@
+USE headfirst_sql;
+
+DELETE FROM clown_info WHERE ACTIVITIES LIKE '%YELLING%' AND NAME = 'CLARABELLE';

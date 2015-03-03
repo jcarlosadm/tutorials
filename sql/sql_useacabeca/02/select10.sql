@@ -1,4 +1,4 @@
-USE greglist;
+USE headfirst_sql;
 
 -- você pode usar NOT em uma série de situações, como NOT BETWEEN ou NOT LIKE
 

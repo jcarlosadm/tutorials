@@ -1,4 +1,4 @@
-USE greglist;
+USE headfirst_sql;
 
 CREATE TABLE IF NOT EXISTS EASY_DRINKS
 (
