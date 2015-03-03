@@ -1,0 +1,5 @@
+use headfirst_sql;
+
+ALTER TABLE MEUS_CONTATOS
+ADD COLUMN id_contato INT NOT NULL AUTO_INCREMENT FIRST,
+ADD PRIMARY KEY (id_contato);

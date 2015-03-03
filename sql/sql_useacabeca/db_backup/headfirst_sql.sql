@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 03-Mar-2015 às 20:44
+-- Generation Time: 03-Mar-2015 às 23:20
 -- Versão do servidor: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -88,6 +88,7 @@ INSERT INTO `EASY_DRINKS` (`NAME`, `MAIN`, `AMOUNT1`, `SECOND`, `AMOUNT2`, `INST
 --
 
 CREATE TABLE IF NOT EXISTS `MEUS_CONTATOS` (
+`id_contato` int(11) NOT NULL,
   `SOBRENOME` varchar(30) NOT NULL DEFAULT 'nobody',
   `PRIMEIRO_NOME` varchar(20) NOT NULL DEFAULT 'nobody',
   `EMAIL` varchar(50) DEFAULT NULL,
@@ -97,16 +98,35 @@ CREATE TABLE IF NOT EXISTS `MEUS_CONTATOS` (
   `ESTADO_CIVIL` varchar(20) DEFAULT NULL,
   `INTERESSES` varchar(100) DEFAULT NULL,
   `PROCURA` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `MEUS_CONTATOS`
 --
 
-INSERT INTO `MEUS_CONTATOS` (`SOBRENOME`, `PRIMEIRO_NOME`, `EMAIL`, `SEXO`, `ANIVERSARIO`, `PROFISSAO`, `ESTADO_CIVIL`, `INTERESSES`, `PROCURA`) VALUES
-('Anderson', 'Jillian', 'Jill_anderson@breakneckpizza.com', 'F', '0000-00-00', 'Escritora Técnica', 'Solteiro', 'Caiaque, répteis', 'Relacionamentos, amigos'),
-('nobody', 'Pat', 'patpost@breakneckpizza.com', NULL, NULL, 'Carteiro(a)', NULL, NULL, NULL);
+INSERT INTO `MEUS_CONTATOS` (`id_contato`, `SOBRENOME`, `PRIMEIRO_NOME`, `EMAIL`, `SEXO`, `ANIVERSARIO`, `PROFISSAO`, `ESTADO_CIVIL`, `INTERESSES`, `PROCURA`) VALUES
+(1, 'Anderson', 'Jillian', 'Jill_anderson@breakneckpizza.com', 'F', '0000-00-00', 'Escritora Técnica', 'Solteiro', 'Caiaque, répteis', 'Relacionamentos, amigos'),
+(2, 'nobody', 'Pat', 'patpost@breakneckpizza.com', NULL, NULL, 'Carteiro(a)', NULL, NULL, NULL);
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `MEUS_CONTATOS`
+--
+ALTER TABLE `MEUS_CONTATOS`
+ ADD PRIMARY KEY (`id_contato`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `MEUS_CONTATOS`
+--
+ALTER TABLE `MEUS_CONTATOS`
+MODIFY `id_contato` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
