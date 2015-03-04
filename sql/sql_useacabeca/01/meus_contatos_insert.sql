@@ -3,7 +3,7 @@ USE headfirst_sql;
 INSERT INTO MEUS_CONTATOS
 (SOBRENOME, PRIMEIRO_NOME, EMAIL, SEXO, ANIVERSARIO, PROFISSAO, ESTADO_CIVIL, INTERESSES, PROCURA)
 VALUES
-('Anderson','Jillian','Jill_anderson@breakneckpizza.com','F','05/09/1980','Escritora Técnica','Solteiro','Caiaque, répteis', 'Relacionamentos, amigos');
+('Anderson','Jillian','Jill_anderson@breakneckpizza.com','F','1980-09-05','Escritora Técnica','Solteiro','Caiaque, répteis', 'Relacionamentos, amigos');
 
 INSERT INTO MEUS_CONTATOS
 (PRIMEIRO_NOME,EMAIL,PROFISSAO)
