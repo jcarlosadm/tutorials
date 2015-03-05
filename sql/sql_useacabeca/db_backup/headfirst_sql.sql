@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 04-Mar-2015 às 20:14
+-- Generation Time: 05-Mar-2015 às 01:27
 -- Versão do servidor: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -131,29 +131,88 @@ INSERT INTO `EASY_DRINKS` (`NAME`, `MAIN`, `AMOUNT1`, `SECOND`, `AMOUNT2`, `INST
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `meus_contatos`
+-- Estrutura da tabela `interests`
 --
 
-CREATE TABLE IF NOT EXISTS `meus_contatos` (
-`id_contato` int(11) NOT NULL,
-  `SOBRENOME` varchar(30) NOT NULL DEFAULT 'nobody',
-  `PRIMEIRO_NOME` varchar(20) NOT NULL DEFAULT 'nobody',
-  `EMAIL` varchar(50) DEFAULT NULL,
-  `SEXO` char(1) DEFAULT NULL,
-  `ANIVERSARIO` date DEFAULT NULL,
-  `PROFISSAO` varchar(50) DEFAULT NULL,
-  `ESTADO_CIVIL` varchar(20) DEFAULT NULL,
-  `INTERESSES` varchar(100) DEFAULT NULL,
-  `PROCURA` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `interests` (
+`id_interest` int(11) NOT NULL,
+  `interest` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
 
 --
--- Extraindo dados da tabela `meus_contatos`
+-- Estrutura da tabela `interest_contact`
 --
 
-INSERT INTO `meus_contatos` (`id_contato`, `SOBRENOME`, `PRIMEIRO_NOME`, `EMAIL`, `SEXO`, `ANIVERSARIO`, `PROFISSAO`, `ESTADO_CIVIL`, `INTERESSES`, `PROCURA`) VALUES
-(1, 'Anderson', 'Jillian', 'Jill_anderson@breakneckpizza.com', 'F', '1980-09-05', 'Escritora Técnica', 'Solteiro', 'Caiaque, répteis', 'Relacionamentos, amigos'),
-(2, 'nobody', 'Pat', 'patpost@breakneckpizza.com', NULL, NULL, 'Carteiro(a)', NULL, NULL, NULL);
+CREATE TABLE IF NOT EXISTS `interest_contact` (
+  `id_interest` int(11) NOT NULL,
+  `id_contact` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `my_contacts`
+--
+
+CREATE TABLE IF NOT EXISTS `my_contacts` (
+`id` int(11) NOT NULL,
+  `last_name` varchar(30) DEFAULT NULL,
+  `first_name` varchar(20) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `gender` char(1) DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
+  `profession` varchar(50) DEFAULT NULL,
+  `location` varchar(50) DEFAULT NULL,
+  `status` varchar(20) DEFAULT NULL,
+  `interests` varchar(100) DEFAULT NULL,
+  `seeking` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `my_contacts`
+--
+
+INSERT INTO `my_contacts` (`id`, `last_name`, `first_name`, `email`, `gender`, `birthday`, `profession`, `location`, `status`, `interests`, `seeking`) VALUES
+(1, 'Anderson', 'Jillian', 'jill_anderson@ \nbreakneckpizza.com', 'F', '1980-09-05', 'Technical Writer', 'Palo Alto, CA', 'single', 'kayaking, reptiles', 'relationship, friends'),
+(2, 'Kenton', 'Leo', 'lkenton@starbuzzcoffee.com', 'M', '1974-01-10', 'Manager', 'San Francisco, CA', 'divorced', 'women', 'women to date'),
+(3, 'McGavin', 'Darrin', ' captainlove@headfirsttheater.com', 'M', '1966-01-23', 'Cruise Ship Captain', 'San Diego, CA', 'single', 'sailing, fishing, yachting', 'women for casual relationships'),
+(4, 'Franklin', 'Joe', 'joe_franklin@leapinlimos.com', 'M', '1977-04-28', 'Software Sales', 'Dallas, TX', 'married', 'fishing, drinking', 'new job'),
+(5, 'Hamilton', 'Jamie', 'dontbother@starbuzzcoffee.com', 'F', '1964-09-10', 'System Administrator', 'Princeton, NJ', 'married', 'RPG', 'nothing'),
+(6, 'Chevrolet', 'Maurice', 'bookman4u@objectville.net', 'M', '1962-07-01', 'Bookshop Owner', 'Mountain View, CA', 'married', 'collecting books, scuba diving', 'friends'),
+(7, 'Kroger', 'Renee', 'poorrenee@mightygumball.net', 'F', '1976-12-03', 'Unemployed', 'San Francisco, CA', 'divorced', 'cooking', 'employment'),
+(8, 'Mendoza', 'Angelina', 'angelina@starbuzzcoffee.com', 'F', '1979-08-19', 'UNIX Sysadmin', 'San Francisco, CA', 'married', 'acting, dancing', 'new job'),
+(9, 'Murphy', 'Donald', 'padraic@tikibeanlounge.com', 'M', '1967-01-23', 'Computer Programmer', 'New York City, NY', 'committed relationsh', 'RPG, anime', 'friends'),
+(10, 'Spatner', 'John', 'jpoet@objectville.net', 'M', '1963-04-18', 'Salesman', 'Woodstock, NY', 'married', 'poetry, screenwriting', 'nothing'),
+(11, 'Toth', 'Anne', 'Anne_Toth@leapinlimos.com', 'F', '1969-11-18', 'Artist', 'San Fran, CA', NULL, NULL, NULL),
+(12, 'Manson', 'Anne', 'am86@objectville.net', 'F', '1977-08-09', 'Baker', 'Seattle, WA', NULL, NULL, NULL),
+(13, 'Hardy', 'Anne', 'anneh@b0tt0msup.com', 'F', '1963-04-18', 'Teacher', 'San Fran, CA', NULL, NULL, NULL),
+(14, 'Parker', 'Anne', 'annep@starbuzzcoffee.com', 'F', '1983-01-10', 'Student', 'San Fran, CA', NULL, NULL, NULL),
+(15, 'Blunt', 'Anne', 'anneblunt@breakneckpizza.com', 'F', '1959-10-09', 'Web Designer', 'San Fran, CA', NULL, NULL, NULL),
+(16, 'Jacobs', 'Anne', 'anne99@objectville.net', 'F', '1968-02-05', 'Computer Programmer', 'San Jose, CA', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `seekings`
+--
+
+CREATE TABLE IF NOT EXISTS `seekings` (
+`id_seeking` int(11) NOT NULL,
+  `seeking` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `seeking_contact`
+--
+
+CREATE TABLE IF NOT EXISTS `seeking_contact` (
+  `id_seeking` int(11) NOT NULL,
+  `id_contact` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -202,10 +261,34 @@ ALTER TABLE `cookie_sales`
  ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `meus_contatos`
+-- Indexes for table `interests`
 --
-ALTER TABLE `meus_contatos`
- ADD PRIMARY KEY (`id_contato`);
+ALTER TABLE `interests`
+ ADD PRIMARY KEY (`id_interest`);
+
+--
+-- Indexes for table `interest_contact`
+--
+ALTER TABLE `interest_contact`
+ ADD PRIMARY KEY (`id_contact`,`id_interest`), ADD KEY `interests_id_interest_fk` (`id_interest`);
+
+--
+-- Indexes for table `my_contacts`
+--
+ALTER TABLE `my_contacts`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `seekings`
+--
+ALTER TABLE `seekings`
+ ADD PRIMARY KEY (`id_seeking`);
+
+--
+-- Indexes for table `seeking_contact`
+--
+ALTER TABLE `seeking_contact`
+ ADD PRIMARY KEY (`id_seeking`,`id_contact`), ADD KEY `my_contacts_id_fk_2` (`id_contact`);
 
 --
 -- Indexes for table `tabela_filme`
@@ -223,15 +306,43 @@ ALTER TABLE `tabela_filme`
 ALTER TABLE `cookie_sales`
 MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 --
--- AUTO_INCREMENT for table `meus_contatos`
+-- AUTO_INCREMENT for table `interests`
 --
-ALTER TABLE `meus_contatos`
-MODIFY `id_contato` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+ALTER TABLE `interests`
+MODIFY `id_interest` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `my_contacts`
+--
+ALTER TABLE `my_contacts`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `seekings`
+--
+ALTER TABLE `seekings`
+MODIFY `id_seeking` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tabela_filme`
 --
 ALTER TABLE `tabela_filme`
 MODIFY `id_filme` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `interest_contact`
+--
+ALTER TABLE `interest_contact`
+ADD CONSTRAINT `interests_id_interest_fk` FOREIGN KEY (`id_interest`) REFERENCES `interests` (`id_interest`),
+ADD CONSTRAINT `my_contacts_id_fk` FOREIGN KEY (`id_contact`) REFERENCES `my_contacts` (`id`);
+
+--
+-- Limitadores para a tabela `seeking_contact`
+--
+ALTER TABLE `seeking_contact`
+ADD CONSTRAINT `my_contacts_id_fk_2` FOREIGN KEY (`id_contact`) REFERENCES `my_contacts` (`id`),
+ADD CONSTRAINT `seekings_id_seeking_fk` FOREIGN KEY (`id_seeking`) REFERENCES `seekings` (`id_seeking`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

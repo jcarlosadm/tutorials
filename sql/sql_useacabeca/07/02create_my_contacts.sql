@@ -1,0 +1,1 @@
+USE headfirst_sql;CREATE TABLE IF NOT EXISTS `my_contacts`(  id INT NOT NULL AUTO_INCREMENT,  `last_name` varchar(30) ,  `first_name` varchar(20) ,  `email` varchar(50) ,  `gender` char(1),  `birthday` date ,  `profession` varchar(50),  `location` varchar(50),  `status` varchar(20),  `interests` varchar(100),  `seeking` varchar(100),  PRIMARY KEY (id));
