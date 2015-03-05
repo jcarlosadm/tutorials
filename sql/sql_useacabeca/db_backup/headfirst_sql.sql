@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 05-Mar-2015 às 01:27
+-- Generation Time: 06-Mar-2015 às 00:37
 -- Versão do servidor: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -19,6 +19,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `headfirst_sql`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `boys`
+--
+
+CREATE TABLE IF NOT EXISTS `boys` (
+`id_boy` int(11) NOT NULL,
+  `boy` varchar(20) DEFAULT NULL,
+  `id_toys` int(11) DEFAULT NULL,
+  `id_toy` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `boys`
+--
+
+INSERT INTO `boys` (`id_boy`, `boy`, `id_toys`, `id_toy`) VALUES
+(1, 'Davey', 3, 3),
+(2, 'Bobby', 5, 5),
+(3, 'Beaver', 2, 2),
+(4, 'Richie', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -153,6 +176,34 @@ CREATE TABLE IF NOT EXISTS `interest_contact` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `locations`
+--
+
+CREATE TABLE IF NOT EXISTS `locations` (
+`zipcode` int(11) NOT NULL,
+  `city` varchar(20) DEFAULT NULL,
+  `state` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `locations`
+--
+
+INSERT INTO `locations` (`zipcode`, `city`, `state`) VALUES
+(1, 'Dallas', 'TX'),
+(2, 'Mountain View', 'CA'),
+(3, 'New York City', 'NY'),
+(4, 'Palo Alto', 'CA'),
+(5, 'Princeton', 'NJ'),
+(6, 'San Diego', 'CA'),
+(8, 'San Francisco', 'CA'),
+(9, 'San Jose', 'CA'),
+(10, 'Seattle', 'WA'),
+(11, 'Woodstock', 'NY');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `my_contacts`
 --
 
@@ -167,30 +218,71 @@ CREATE TABLE IF NOT EXISTS `my_contacts` (
   `location` varchar(50) DEFAULT NULL,
   `status` varchar(20) DEFAULT NULL,
   `interests` varchar(100) DEFAULT NULL,
-  `seeking` varchar(100) DEFAULT NULL
+  `seeking` varchar(100) DEFAULT NULL,
+  `profession_id` int(11) DEFAULT NULL,
+  `city` varchar(20) DEFAULT NULL,
+  `state` varchar(20) DEFAULT NULL,
+  `location_zipcode` int(11) DEFAULT NULL,
+  `status_id` int(11) DEFAULT NULL,
+  `interest1` varchar(20) DEFAULT NULL,
+  `interest2` varchar(20) DEFAULT NULL,
+  `interest3` varchar(20) DEFAULT NULL,
+  `interest4` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `my_contacts`
 --
 
-INSERT INTO `my_contacts` (`id`, `last_name`, `first_name`, `email`, `gender`, `birthday`, `profession`, `location`, `status`, `interests`, `seeking`) VALUES
-(1, 'Anderson', 'Jillian', 'jill_anderson@ \nbreakneckpizza.com', 'F', '1980-09-05', 'Technical Writer', 'Palo Alto, CA', 'single', 'kayaking, reptiles', 'relationship, friends'),
-(2, 'Kenton', 'Leo', 'lkenton@starbuzzcoffee.com', 'M', '1974-01-10', 'Manager', 'San Francisco, CA', 'divorced', 'women', 'women to date'),
-(3, 'McGavin', 'Darrin', ' captainlove@headfirsttheater.com', 'M', '1966-01-23', 'Cruise Ship Captain', 'San Diego, CA', 'single', 'sailing, fishing, yachting', 'women for casual relationships'),
-(4, 'Franklin', 'Joe', 'joe_franklin@leapinlimos.com', 'M', '1977-04-28', 'Software Sales', 'Dallas, TX', 'married', 'fishing, drinking', 'new job'),
-(5, 'Hamilton', 'Jamie', 'dontbother@starbuzzcoffee.com', 'F', '1964-09-10', 'System Administrator', 'Princeton, NJ', 'married', 'RPG', 'nothing'),
-(6, 'Chevrolet', 'Maurice', 'bookman4u@objectville.net', 'M', '1962-07-01', 'Bookshop Owner', 'Mountain View, CA', 'married', 'collecting books, scuba diving', 'friends'),
-(7, 'Kroger', 'Renee', 'poorrenee@mightygumball.net', 'F', '1976-12-03', 'Unemployed', 'San Francisco, CA', 'divorced', 'cooking', 'employment'),
-(8, 'Mendoza', 'Angelina', 'angelina@starbuzzcoffee.com', 'F', '1979-08-19', 'UNIX Sysadmin', 'San Francisco, CA', 'married', 'acting, dancing', 'new job'),
-(9, 'Murphy', 'Donald', 'padraic@tikibeanlounge.com', 'M', '1967-01-23', 'Computer Programmer', 'New York City, NY', 'committed relationsh', 'RPG, anime', 'friends'),
-(10, 'Spatner', 'John', 'jpoet@objectville.net', 'M', '1963-04-18', 'Salesman', 'Woodstock, NY', 'married', 'poetry, screenwriting', 'nothing'),
-(11, 'Toth', 'Anne', 'Anne_Toth@leapinlimos.com', 'F', '1969-11-18', 'Artist', 'San Fran, CA', NULL, NULL, NULL),
-(12, 'Manson', 'Anne', 'am86@objectville.net', 'F', '1977-08-09', 'Baker', 'Seattle, WA', NULL, NULL, NULL),
-(13, 'Hardy', 'Anne', 'anneh@b0tt0msup.com', 'F', '1963-04-18', 'Teacher', 'San Fran, CA', NULL, NULL, NULL),
-(14, 'Parker', 'Anne', 'annep@starbuzzcoffee.com', 'F', '1983-01-10', 'Student', 'San Fran, CA', NULL, NULL, NULL),
-(15, 'Blunt', 'Anne', 'anneblunt@breakneckpizza.com', 'F', '1959-10-09', 'Web Designer', 'San Fran, CA', NULL, NULL, NULL),
-(16, 'Jacobs', 'Anne', 'anne99@objectville.net', 'F', '1968-02-05', 'Computer Programmer', 'San Jose, CA', NULL, NULL, NULL);
+INSERT INTO `my_contacts` (`id`, `last_name`, `first_name`, `email`, `gender`, `birthday`, `profession`, `location`, `status`, `interests`, `seeking`, `profession_id`, `city`, `state`, `location_zipcode`, `status_id`, `interest1`, `interest2`, `interest3`, `interest4`) VALUES
+(1, 'Anderson', 'Jillian', 'jill_anderson@breakneckpizza.com', 'F', '1980-09-05', 'Technical Writer', 'Palo Alto, CA', 'single', '', 'relationship, friends', 12, 'Palo Alto', 'CA', 4, 4, 'kayaking', ' reptiles', '', NULL),
+(2, 'Kenton', 'Leo', 'lkenton@starbuzzcoffee.com', 'M', '1974-01-10', 'Manager', 'San Francisco, CA', 'divorced', '', 'women to date', 6, 'San Francisco', 'CA', 8, 2, 'women', '', '', NULL),
+(3, 'McGavin', 'Darrin', 'captainlove@headfirsttheater.com', 'M', '1966-01-23', 'Cruise Ship Captain', 'San Diego, CA', 'single', '', 'women for casual relationships', 5, 'San Diego', 'CA', 6, 4, 'sailing', ' fishing', '', NULL),
+(4, 'Franklin', 'Joe', 'joe_franklin@leapinlimos.com', 'M', '1977-04-28', 'Software Sales', 'Dallas, TX', 'married', '', 'new job', 8, 'Dallas', 'TX', 1, 3, 'fishing', ' drinking', '', NULL),
+(5, 'Hamilton', 'Jamie', 'dontbother@starbuzzcoffee.com', 'F', '1964-09-10', 'System Administrator', 'Princeton, NJ', 'married', '', 'nothing', 10, 'Princeton', 'NJ', 5, 3, 'RPG', '', '', NULL),
+(6, 'Chevrolet', 'Maurice', 'bookman4u@objectville.net', 'M', '1962-07-01', 'Bookshop Owner', 'Mountain View, CA', 'married', '', 'friends', 3, 'Mountain View', 'CA', 2, 3, 'collecting books', ' scuba diving', '', NULL),
+(7, 'Kroger', 'Renee', 'poorrenee@mightygumball.net', 'F', '1976-12-03', 'Unemployed', 'San Francisco, CA', 'divorced', '', 'employment', 13, 'San Francisco', 'CA', 8, 2, 'cooking', '', '', NULL),
+(8, 'Mendoza', 'Angelina', 'angelina@starbuzzcoffee.com', 'F', '1979-08-19', 'UNIX Sysadmin', 'San Francisco, CA', 'married', '', 'new job', 14, 'San Francisco', 'CA', 8, 3, 'acting', ' dancing', '', NULL),
+(9, 'Murphy', 'Donald', 'padraic@tikibeanlounge.com', 'M', '1967-01-23', 'Computer Programmer', 'New York City, NY', 'committed relationsh', '', 'friends', 4, 'New York City', 'NY', 3, 1, 'RPG', ' anime', '', NULL),
+(10, 'Spatner', 'John', 'jpoet@objectville.net', 'M', '1963-04-18', 'Salesman', 'Woodstock, NY', 'married', '', 'nothing', 7, 'Woodstock', 'NY', 11, 3, 'poetry', ' screenwriting', '', NULL),
+(11, 'Toth', 'Anne', 'Anne_Toth@leapinlimos.com', 'F', '1969-11-18', 'Artist', 'San Fran, CA', NULL, NULL, NULL, 1, 'San Fran', 'CA', 8, NULL, NULL, NULL, NULL, NULL),
+(12, 'Manson', 'Anne', 'am86@objectville.net', 'F', '1977-08-09', 'Baker', 'Seattle, WA', NULL, NULL, NULL, 2, 'Seattle', 'WA', 10, NULL, NULL, NULL, NULL, NULL),
+(13, 'Hardy', 'Anne', 'anneh@b0tt0msup.com', 'F', '1963-04-18', 'Teacher', 'San Fran, CA', NULL, NULL, NULL, 11, 'San Fran', 'CA', 8, NULL, NULL, NULL, NULL, NULL),
+(14, 'Parker', 'Anne', 'annep@starbuzzcoffee.com', 'F', '1983-01-10', 'Student', 'San Fran, CA', NULL, NULL, NULL, 9, 'San Fran', 'CA', 8, NULL, NULL, NULL, NULL, NULL),
+(15, 'Blunt', 'Anne', 'anneblunt@breakneckpizza.com', 'F', '1959-10-09', 'Web Designer', 'San Fran, CA', NULL, NULL, NULL, 15, 'San Fran', 'CA', 8, NULL, NULL, NULL, NULL, NULL),
+(16, 'Jacobs', 'Anne', 'anne99@objectville.net', 'F', '1968-02-05', 'Computer Programmer', 'San Jose, CA', NULL, NULL, NULL, 4, 'San Jose', 'CA', 9, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `professions`
+--
+
+CREATE TABLE IF NOT EXISTS `professions` (
+`id` int(11) NOT NULL,
+  `profession` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `professions`
+--
+
+INSERT INTO `professions` (`id`, `profession`) VALUES
+(1, 'Artist'),
+(2, 'Baker'),
+(3, 'Bookshop Owner'),
+(4, 'Computer Programmer'),
+(5, 'Cruise Ship Captain'),
+(6, 'Manager'),
+(7, 'Salesman'),
+(8, 'Software Sales'),
+(9, 'Student'),
+(10, 'System Administrator'),
+(11, 'Teacher'),
+(12, 'Technical Writer'),
+(13, 'Unemployed'),
+(14, 'UNIX Sysadmin'),
+(15, 'Web Designer');
 
 -- --------------------------------------------------------
 
@@ -213,6 +305,27 @@ CREATE TABLE IF NOT EXISTS `seeking_contact` (
   `id_seeking` int(11) NOT NULL,
   `id_contact` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `status_table`
+--
+
+CREATE TABLE IF NOT EXISTS `status_table` (
+`id` int(11) NOT NULL,
+  `status` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `status_table`
+--
+
+INSERT INTO `status_table` (`id`, `status`) VALUES
+(1, 'committed relationsh'),
+(2, 'divorced'),
+(3, 'married'),
+(4, 'single');
 
 -- --------------------------------------------------------
 
@@ -250,9 +363,37 @@ INSERT INTO `tabela_filme` (`id_filme`, `titulo`, `censura`, `data_compra`, `cat
 (92, 'Angry Pirate', '13', '2003-04-19', 'diversos'),
 (93, 'Potentially Habitable Planet', '13', '2001-02-05', 'ficção');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `toys`
+--
+
+CREATE TABLE IF NOT EXISTS `toys` (
+`id_toy` int(11) NOT NULL,
+  `toy` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `toys`
+--
+
+INSERT INTO `toys` (`id_toy`, `toy`) VALUES
+(1, 'bambolé'),
+(2, 'planador'),
+(3, 'soldados'),
+(4, 'gaita'),
+(5, 'figurinhas');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `boys`
+--
+ALTER TABLE `boys`
+ ADD PRIMARY KEY (`id_boy`), ADD KEY `toys_id_toy_fk` (`id_toys`);
 
 --
 -- Indexes for table `cookie_sales`
@@ -273,9 +414,21 @@ ALTER TABLE `interest_contact`
  ADD PRIMARY KEY (`id_contact`,`id_interest`), ADD KEY `interests_id_interest_fk` (`id_interest`);
 
 --
+-- Indexes for table `locations`
+--
+ALTER TABLE `locations`
+ ADD PRIMARY KEY (`zipcode`);
+
+--
 -- Indexes for table `my_contacts`
 --
 ALTER TABLE `my_contacts`
+ ADD PRIMARY KEY (`id`), ADD KEY `professions_id_fk` (`profession_id`), ADD KEY `locations_zipcode_fk` (`location_zipcode`), ADD KEY `status_table_id_fk` (`status_id`);
+
+--
+-- Indexes for table `professions`
+--
+ALTER TABLE `professions`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -291,15 +444,32 @@ ALTER TABLE `seeking_contact`
  ADD PRIMARY KEY (`id_seeking`,`id_contact`), ADD KEY `my_contacts_id_fk_2` (`id_contact`);
 
 --
+-- Indexes for table `status_table`
+--
+ALTER TABLE `status_table`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tabela_filme`
 --
 ALTER TABLE `tabela_filme`
  ADD PRIMARY KEY (`id_filme`);
 
 --
+-- Indexes for table `toys`
+--
+ALTER TABLE `toys`
+ ADD PRIMARY KEY (`id_toy`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
+--
+-- AUTO_INCREMENT for table `boys`
+--
+ALTER TABLE `boys`
+MODIFY `id_boy` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `cookie_sales`
 --
@@ -311,23 +481,49 @@ MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=29;
 ALTER TABLE `interests`
 MODIFY `id_interest` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `locations`
+--
+ALTER TABLE `locations`
+MODIFY `zipcode` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+--
 -- AUTO_INCREMENT for table `my_contacts`
 --
 ALTER TABLE `my_contacts`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `professions`
+--
+ALTER TABLE `professions`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `seekings`
 --
 ALTER TABLE `seekings`
 MODIFY `id_seeking` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `status_table`
+--
+ALTER TABLE `status_table`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
 -- AUTO_INCREMENT for table `tabela_filme`
 --
 ALTER TABLE `tabela_filme`
 MODIFY `id_filme` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
 --
+-- AUTO_INCREMENT for table `toys`
+--
+ALTER TABLE `toys`
+MODIFY `id_toy` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Limitadores para a tabela `boys`
+--
+ALTER TABLE `boys`
+ADD CONSTRAINT `toys_id_toy_fk` FOREIGN KEY (`id_toys`) REFERENCES `toys` (`id_toy`);
 
 --
 -- Limitadores para a tabela `interest_contact`
@@ -335,6 +531,14 @@ MODIFY `id_filme` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=94;
 ALTER TABLE `interest_contact`
 ADD CONSTRAINT `interests_id_interest_fk` FOREIGN KEY (`id_interest`) REFERENCES `interests` (`id_interest`),
 ADD CONSTRAINT `my_contacts_id_fk` FOREIGN KEY (`id_contact`) REFERENCES `my_contacts` (`id`);
+
+--
+-- Limitadores para a tabela `my_contacts`
+--
+ALTER TABLE `my_contacts`
+ADD CONSTRAINT `locations_zipcode_fk` FOREIGN KEY (`location_zipcode`) REFERENCES `locations` (`zipcode`),
+ADD CONSTRAINT `professions_id_fk` FOREIGN KEY (`profession_id`) REFERENCES `professions` (`id`),
+ADD CONSTRAINT `status_table_id_fk` FOREIGN KEY (`status_id`) REFERENCES `status_table` (`id`);
 
 --
 -- Limitadores para a tabela `seeking_contact`
