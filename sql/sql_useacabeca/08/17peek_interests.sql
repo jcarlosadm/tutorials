@@ -13,4 +13,4 @@ interest2 = SUBSTRING_INDEX(interests, ',', 1),
 interests = SUBSTR(interests, LENGTH(interest2)+2),
 interest3 = SUBSTRING_INDEX(interests, ',', 1),
 interests = SUBSTR(interests, LENGTH(interest3)+2),
-interest3 = interests;
+interest4 = interests;
