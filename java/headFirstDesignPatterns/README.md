@@ -31,3 +31,7 @@ Cap 7:
 
 - duckAdapter (padrão adapter)
 - homeTheaterFacade (padrão facade)
+
+Cap 8:
+
+- caffeineBeverage (padrão template method)
