@@ -35,3 +35,8 @@ Cap 7:
 Cap 8:
 
 - caffeineBeverage (padrão template method)
+
+Cap 9:
+
+- restaurantIterator (padrão Iterator)
+- restaurantComposite (padrão Composite)
