@@ -40,3 +40,7 @@ Cap 9:
 
 - restaurantIterator (padrão Iterator)
 - restaurantComposite (padrão Composite)
+
+Cap 10:
+
+- gunballMachine (padrão State)
