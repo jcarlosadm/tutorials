@@ -11,10 +11,13 @@ import java.net.URL;
 
 public class StartingClass extends Applet implements Runnable, KeyListener {
 
+    private static final long serialVersionUID = 1L;
     private Robot robot;
-    private Image image, character;
+    private Image image, currentSprite, character, characterDown,
+            characterJumped, background;
     private URL base;
     private Graphics second;
+    private static Background bg1, bg2;
 
     @Override
     public void init() {
@@ -32,10 +35,16 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
         }
 
         this.character = this.getImage(base, "data/character.png");
+        this.characterDown = this.getImage(base, "data/down.png");
+        this.characterJumped = this.getImage(base, "data/jumped.png");
+        this.currentSprite = this.character;
+        this.background = this.getImage(base, "data/background.png");
     }
 
     @Override
     public void start() {
+        bg1 = new Background(0, 0);
+        bg2 = new Background(2160, 0);
         this.robot = new Robot();
 
         Thread thread = new Thread(this);
@@ -58,6 +67,14 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
     public void run() {
         while (true) {
             this.robot.update();
+            if(this.robot.isJumped()){
+                this.currentSprite = this.characterJumped;
+            }else if(this.robot.isJumped() == false && this.robot.isDucked() == false){
+                this.currentSprite = this.character;
+            }
+            
+            bg1.update();
+            bg2.update();
             repaint();
 
             try {
@@ -76,52 +93,63 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+
         switch (e.getKeyCode()) {
         case KeyEvent.VK_UP:
-            System.out.println("move up");
+            System.out.println("Move up");
             break;
 
         case KeyEvent.VK_DOWN:
-            System.out.println("move down");
+            currentSprite = characterDown;
+            if (robot.isJumped() == false) {
+                robot.setDucked(true);
+                robot.setSpeedX(0);
+            }
             break;
 
         case KeyEvent.VK_LEFT:
-            this.robot.moveLeft();
+            robot.moveLeft();
+            robot.setMovingLeft(true);
             break;
 
         case KeyEvent.VK_RIGHT:
-            this.robot.moveRight();
+            robot.moveRight();
+            robot.setMovingRight(true);
             break;
 
         case KeyEvent.VK_SPACE:
-            this.robot.jump();
+            robot.jump();
             break;
+
         }
+
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         switch (e.getKeyCode()) {
         case KeyEvent.VK_UP:
-            System.out.println("move up");
+            System.out.println("Stop moving up");
             break;
 
         case KeyEvent.VK_DOWN:
-            System.out.println("move down");
+            currentSprite = character;
+            robot.setDucked(false);
             break;
 
         case KeyEvent.VK_LEFT:
-            this.robot.stop();
+            robot.stopLeft();
             break;
 
         case KeyEvent.VK_RIGHT:
-            this.robot.stop();
+            robot.stopRight();
             break;
 
         case KeyEvent.VK_SPACE:
-            System.out.println("jump");
             break;
+
         }
+
     }
 
     @Override
@@ -141,8 +169,24 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
 
     @Override
     public void paint(Graphics g) {
-        g.drawImage(this.character, this.robot.getCenterX() - 61,
+        g.drawImage(this.background, bg1.getBgX(), bg1.getBgY(), this);
+        g.drawImage(this.background, bg2.getBgX(), bg2.getBgY(), this);
+        g.drawImage(this.currentSprite, this.robot.getCenterX() - 61,
                 this.robot.getCenterY() - 63, this);
+    }
+
+    /**
+     * @return the bg1
+     */
+    public static Background getBg1() {
+        return bg1;
+    }
+
+    /**
+     * @return the bg2
+     */
+    public static Background getBg2() {
+        return bg2;
     }
 
 }
