@@ -48,7 +48,7 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
         this.robot = new Robot();
 
         Thread thread = new Thread(this);
-        thread.run();
+        thread.start();
     }
 
     @Override
