@@ -13,8 +13,9 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
 
     private static final long serialVersionUID = 1L;
     private Robot robot;
+    private Heliboy hb, hb2;
     private Image image, currentSprite, character, characterDown,
-            characterJumped, background;
+            characterJumped, background, heliboy;
     private URL base;
     private Graphics second;
     private static Background bg1, bg2;
@@ -39,6 +40,7 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
         this.characterJumped = this.getImage(base, "data/jumped.png");
         this.currentSprite = this.character;
         this.background = this.getImage(base, "data/background.png");
+        this.heliboy = this.getImage(base, "data/heliboy.png");
     }
 
     @Override
@@ -46,6 +48,9 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
         bg1 = new Background(0, 0);
         bg2 = new Background(2160, 0);
         this.robot = new Robot();
+        
+        this.hb = new Heliboy(340, 360);
+        this.hb2 = new Heliboy(700, 360);
 
         Thread thread = new Thread(this);
         thread.start();
@@ -73,6 +78,8 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
                 this.currentSprite = this.character;
             }
             
+            this.hb.update();
+            this.hb2.update();
             bg1.update();
             bg2.update();
             repaint();
@@ -173,6 +180,8 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
         g.drawImage(this.background, bg2.getBgX(), bg2.getBgY(), this);
         g.drawImage(this.currentSprite, this.robot.getCenterX() - 61,
                 this.robot.getCenterY() - 63, this);
+        g.drawImage(this.heliboy, this.hb.getCenterX()-48, this.hb.getCenterY()-48, this);
+        g.drawImage(this.heliboy, this.hb2.getCenterX()-48, this.hb2.getCenterY()-48, this);
     }
 
     /**
