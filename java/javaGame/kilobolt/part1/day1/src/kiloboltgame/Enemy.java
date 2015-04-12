@@ -7,18 +7,42 @@ public class Enemy {
     private int power, speedX, centerX, centerY;
     private Background bg = StartingClass.getBg1();
     public Rectangle r = new Rectangle(0, 0, 0, 0);
-    
+
     public int health = 5;
 
+    private int movementSpeed;
+
     public void update() {
+        this.follow();
         this.centerX += this.speedX;
-        this.speedX = this.bg.getSpeedX() * 5;
+        this.speedX = this.bg.getSpeedX() * 5 + this.movementSpeed;
 
         r.setBounds(centerX - 25, centerY - 25, 50, 60);
 
         if (r.intersects(Robot.yellowRed)) {
             this.checkCollision();
         }
+    }
+
+    public void follow() {
+
+        if (centerX < -95 || centerX > 810) {
+            movementSpeed = 0;
+        }
+
+        else if (Math.abs(StartingClass.getRobot().getCenterX() - centerX) < 5) {
+            movementSpeed = 0;
+        }
+
+        else {
+
+            if (StartingClass.getRobot().getCenterX() >= centerX) {
+                movementSpeed = 1;
+            } else {
+                movementSpeed = -1;
+            }
+        }
+
     }
 
     private void checkCollision() {
