@@ -20,7 +20,7 @@ import kiloboltgame.framework.Animation;
 public class StartingClass extends Applet implements Runnable, KeyListener {
 
     private static final long serialVersionUID = 1L;
-    private Robot robot;
+    private static Robot robot;
     private Heliboy hb, hb2;
     private Image image, currentSprite, character, character2, character3,
             characterDown, characterJumped, background, heliboy, heliboy2,
@@ -91,14 +91,13 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
     public void start() {
         bg1 = new Background(0, 0);
         bg2 = new Background(2160, 0);
+        robot = new Robot();
 
         try {
             this.loadMap("data/map1.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        this.robot = new Robot();
 
         this.hb = new Heliboy(340, 360);
         this.hb2 = new Heliboy(700, 360);
@@ -126,7 +125,7 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
         }
         height = lines.size();
 
-        for (int j = 0; j < 12; j++) {
+        for (int j = 0; j < height; j++) {
             String line = (String) lines.get(j);
             for (int i = 0; i < width; i++) {
                 System.out.println(i + "is i ");
@@ -156,15 +155,14 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
     @Override
     public void run() {
         while (true) {
-            this.robot.update();
-            if (this.robot.isJumped()) {
+            robot.update();
+            if (robot.isJumped()) {
                 this.currentSprite = this.characterJumped;
-            } else if (this.robot.isJumped() == false
-                    && this.robot.isDucked() == false) {
+            } else if (robot.isJumped() == false && robot.isDucked() == false) {
                 this.currentSprite = this.anim.getImage();
             }
 
-            List<?> projectiles = this.robot.getProjectiles();
+            List<?> projectiles = robot.getProjectiles();
 
             for (Iterator<?> iterator = projectiles.iterator(); iterator
                     .hasNext();) {
@@ -241,9 +239,9 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
             break;
 
         case KeyEvent.VK_CONTROL:
-            if (this.robot.isDucked() == false
-                    && this.robot.isJumped() == false) {
-                this.robot.shoot();
+            if (robot.isDucked() == false && robot.isJumped() == false) {
+                robot.shoot();
+                robot.setReadyToFire(false);
             }
 
             break;
@@ -274,6 +272,10 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
         case KeyEvent.VK_SPACE:
             break;
 
+        case KeyEvent.VK_CONTROL:
+            robot.setReadyToFire(true);
+            break;
+
         }
 
     }
@@ -299,7 +301,7 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
         g.drawImage(this.background, bg2.getBgX(), bg2.getBgY(), this);
         this.paintTiles(g);
 
-        List<?> projectiles = this.robot.getProjectiles();
+        List<?> projectiles = robot.getProjectiles();
         for (Object object : projectiles) {
             Projectile p;
             if (object instanceof Projectile) {
@@ -309,8 +311,12 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
             }
         }
 
-        g.drawImage(this.currentSprite, this.robot.getCenterX() - 61,
-                this.robot.getCenterY() - 63, this);
+        g.drawRect((int) Robot.rect.getX(), (int) Robot.rect.getY(),
+                (int) Robot.rect.getWidth(), (int) Robot.rect.getHeight());
+        g.drawRect((int) Robot.rect2.getX(), (int) Robot.rect2.getY(),
+                (int) Robot.rect2.getWidth(), (int) Robot.rect2.getHeight());
+        g.drawImage(this.currentSprite, robot.getCenterX() - 61,
+                robot.getCenterY() - 63, this);
         g.drawImage(this.hanim.getImage(), this.hb.getCenterX() - 48,
                 this.hb.getCenterY() - 48, this);
         g.drawImage(this.hanim.getImage(), this.hb2.getCenterX() - 48,
@@ -343,6 +349,10 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
      */
     public static Background getBg2() {
         return bg2;
+    }
+
+    public static Robot getRobot() {
+        return robot;
     }
 
 }
