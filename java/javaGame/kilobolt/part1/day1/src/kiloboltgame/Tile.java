@@ -38,19 +38,49 @@ public class Tile {
         this.speedX = bg.getSpeedX() * 5;
         this.tileX += this.speedX;
         r.setBounds(this.tileX, this.tileY, 40, 40);
-        
-        if(this.type != 0){
+
+        if (r.intersects(Robot.yellowRed) && type != 0) {
             this.checkVerticalCollision(Robot.rect, Robot.rect2);
+            this.checkSideCollision(Robot.rect3, Robot.rect4, Robot.footleft,
+                    Robot.footright);
         }
     }
 
     public void checkVerticalCollision(Rectangle rtop, Rectangle rbot) {
-        if (rtop.intersects(this.r)) {
-            System.out.println("upper collision");
+        if (rtop.intersects(r)) {
+
         }
 
-        if (rbot.intersects(this.r)) {
-            System.out.println("lower collision");
+        if (rbot.intersects(r) && type == 8) {
+            robot.setJumped(false);
+            robot.setSpeedY(0);
+            robot.setCenterY(tileY - 63);
+        }
+    }
+
+    public void checkSideCollision(Rectangle rleft, Rectangle rright,
+            Rectangle leftfoot, Rectangle rightfoot) {
+        if (type != 5 && type != 2 && type != 0) {
+            if (rleft.intersects(r)) {
+                robot.setCenterX(tileX + 102);
+
+                robot.setSpeedX(0);
+
+            } else if (leftfoot.intersects(r)) {
+                robot.setCenterX(tileX + 85);
+                robot.setSpeedX(0);
+            }
+
+            if (rright.intersects(r)) {
+                robot.setCenterX(tileX - 62);
+
+                robot.setSpeedX(0);
+            }
+
+            else if (rightfoot.intersects(r)) {
+                robot.setCenterX(tileX - 45);
+                robot.setSpeedX(0);
+            }
         }
     }
 
