@@ -8,6 +8,8 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.List;
 
 public class StartingClass extends Applet implements Runnable, KeyListener {
 
@@ -78,6 +80,23 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
                 this.currentSprite = this.character;
             }
             
+            List<?> projectiles = this.robot.getProjectiles();
+            
+            for (Iterator<?> iterator = projectiles.iterator(); iterator.hasNext();) {
+                Object object = (Object) iterator.next();
+                
+                Projectile p;
+                if(object instanceof Projectile){
+                    p = (Projectile) object;
+                    if(p.isVisible() == true){
+                        p.update();
+                    }else{
+                        iterator.remove();
+                    }
+                }
+                
+            }
+            
             this.hb.update();
             this.hb2.update();
             bg1.update();
@@ -128,6 +147,12 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
             robot.jump();
             break;
 
+        case KeyEvent.VK_CONTROL:
+            if(this.robot.isDucked() == false && this.robot.isJumped() == false){
+                this.robot.shoot();
+            }
+            
+            break;
         }
 
     }
@@ -178,6 +203,17 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
     public void paint(Graphics g) {
         g.drawImage(this.background, bg1.getBgX(), bg1.getBgY(), this);
         g.drawImage(this.background, bg2.getBgX(), bg2.getBgY(), this);
+        
+        List<?> projectiles = this.robot.getProjectiles();
+        for (Object object : projectiles) {
+            Projectile p;
+            if(object instanceof Projectile){
+                p = (Projectile) object;
+                g.setColor(Color.YELLOW);
+                g.fillRect(p.getX(), p.getY(), 10, 5);
+            }
+        }
+        
         g.drawImage(this.currentSprite, this.robot.getCenterX() - 61,
                 this.robot.getCenterY() - 63, this);
         g.drawImage(this.heliboy, this.hb.getCenterX()-48, this.hb.getCenterY()-48, this);
