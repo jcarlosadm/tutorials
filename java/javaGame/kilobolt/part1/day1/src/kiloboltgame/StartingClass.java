@@ -2,6 +2,7 @@ package kiloboltgame;
 
 import java.applet.Applet;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -21,7 +22,9 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
 
     private static final long serialVersionUID = 1L;
     private static Robot robot;
-    private Heliboy hb, hb2;
+    public static Heliboy hb, hb2;
+    public static int score = 0;
+    private Font font = new Font(null, Font.BOLD, 30);
     private Image image, currentSprite, character, character2, character3,
             characterDown, characterJumped, background, heliboy, heliboy2,
             heliboy3, heliboy4, heliboy5;
@@ -99,8 +102,8 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
             e.printStackTrace();
         }
 
-        this.hb = new Heliboy(340, 360);
-        this.hb2 = new Heliboy(700, 360);
+        hb = new Heliboy(340, 360);
+        hb2 = new Heliboy(700, 360);
 
         Thread thread = new Thread(this);
         thread.start();
@@ -181,8 +184,8 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
             }
 
             this.updateTiles();
-            this.hb.update();
-            this.hb2.update();
+            hb.update();
+            hb2.update();
             bg1.update();
             bg2.update();
 
@@ -317,10 +320,13 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
                 (int) Robot.rect2.getWidth(), (int) Robot.rect2.getHeight());
         g.drawImage(this.currentSprite, robot.getCenterX() - 61,
                 robot.getCenterY() - 63, this);
-        g.drawImage(this.hanim.getImage(), this.hb.getCenterX() - 48,
-                this.hb.getCenterY() - 48, this);
-        g.drawImage(this.hanim.getImage(), this.hb2.getCenterX() - 48,
-                this.hb2.getCenterY() - 48, this);
+        g.drawImage(this.hanim.getImage(), hb.getCenterX() - 48,
+                hb.getCenterY() - 48, this);
+        g.drawImage(this.hanim.getImage(), hb2.getCenterX() - 48,
+                hb2.getCenterY() - 48, this);
+        g.setFont(font);
+        g.setColor(Color.WHITE);
+        g.drawString(Integer.toString(score), 740, 30); 
     }
 
     private void updateTiles() {
