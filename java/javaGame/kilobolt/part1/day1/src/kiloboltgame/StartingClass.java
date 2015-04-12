@@ -11,13 +11,17 @@ import java.net.URL;
 import java.util.Iterator;
 import java.util.List;
 
+import kiloboltgame.framework.Animation;
+
 public class StartingClass extends Applet implements Runnable, KeyListener {
 
     private static final long serialVersionUID = 1L;
     private Robot robot;
     private Heliboy hb, hb2;
-    private Image image, currentSprite, character, characterDown,
-            characterJumped, background, heliboy;
+    private Image image, currentSprite, character, character2, character3,
+            characterDown, characterJumped, background, heliboy, heliboy2,
+            heliboy3, heliboy4, heliboy5;
+    private Animation anim, hanim;
     private URL base;
     private Graphics second;
     private static Background bg1, bg2;
@@ -38,11 +42,36 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
         }
 
         this.character = this.getImage(base, "data/character.png");
+        this.character2 = this.getImage(base, "data/character2.png");
+        this.character3 = this.getImage(base, "data/character3.png");
+        
         this.characterDown = this.getImage(base, "data/down.png");
         this.characterJumped = this.getImage(base, "data/jumped.png");
-        this.currentSprite = this.character;
         this.background = this.getImage(base, "data/background.png");
+        
         this.heliboy = this.getImage(base, "data/heliboy.png");
+        this.heliboy2 = this.getImage(base, "data/heliboy2.png");
+        this.heliboy3 = this.getImage(base, "data/heliboy3.png");
+        this.heliboy4 = this.getImage(base, "data/heliboy4.png");
+        this.heliboy5 = this.getImage(base, "data/heliboy5.png");
+        
+        this.anim = new Animation();
+        this.anim.addFrame(this.character, 1250);
+        this.anim.addFrame(this.character2, 50);
+        this.anim.addFrame(this.character3, 50);
+        this.anim.addFrame(this.character2, 50);
+        
+        this.hanim = new Animation();
+        this.hanim.addFrame(this.heliboy, 100);
+        this.hanim.addFrame(this.heliboy2, 100);
+        this.hanim.addFrame(this.heliboy3, 100);
+        this.hanim.addFrame(this.heliboy4, 100);
+        this.hanim.addFrame(this.heliboy5, 100);
+        this.hanim.addFrame(this.heliboy4, 100);
+        this.hanim.addFrame(this.heliboy3, 100);
+        this.hanim.addFrame(this.heliboy2, 100);
+        
+        this.currentSprite = this.anim.getImage();
     }
 
     @Override
@@ -50,7 +79,7 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
         bg1 = new Background(0, 0);
         bg2 = new Background(2160, 0);
         this.robot = new Robot();
-        
+
         this.hb = new Heliboy(340, 360);
         this.hb2 = new Heliboy(700, 360);
 
@@ -74,33 +103,37 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
     public void run() {
         while (true) {
             this.robot.update();
-            if(this.robot.isJumped()){
+            if (this.robot.isJumped()) {
                 this.currentSprite = this.characterJumped;
-            }else if(this.robot.isJumped() == false && this.robot.isDucked() == false){
-                this.currentSprite = this.character;
+            } else if (this.robot.isJumped() == false
+                    && this.robot.isDucked() == false) {
+                this.currentSprite = this.anim.getImage();
             }
-            
+
             List<?> projectiles = this.robot.getProjectiles();
-            
-            for (Iterator<?> iterator = projectiles.iterator(); iterator.hasNext();) {
+
+            for (Iterator<?> iterator = projectiles.iterator(); iterator
+                    .hasNext();) {
                 Object object = (Object) iterator.next();
-                
+
                 Projectile p;
-                if(object instanceof Projectile){
+                if (object instanceof Projectile) {
                     p = (Projectile) object;
-                    if(p.isVisible() == true){
+                    if (p.isVisible() == true) {
                         p.update();
-                    }else{
+                    } else {
                         iterator.remove();
                     }
                 }
-                
+
             }
-            
+
             this.hb.update();
             this.hb2.update();
             bg1.update();
             bg2.update();
+            
+            animate();
             repaint();
 
             try {
@@ -109,6 +142,11 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
                 e.printStackTrace();
             }
         }
+    }
+    
+    public void animate(){
+        this.anim.update(10);
+        this.hanim.update(50);
     }
 
     @Override
@@ -148,10 +186,11 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
             break;
 
         case KeyEvent.VK_CONTROL:
-            if(this.robot.isDucked() == false && this.robot.isJumped() == false){
+            if (this.robot.isDucked() == false
+                    && this.robot.isJumped() == false) {
                 this.robot.shoot();
             }
-            
+
             break;
         }
 
@@ -165,7 +204,7 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
             break;
 
         case KeyEvent.VK_DOWN:
-            currentSprite = character;
+            currentSprite = this.anim.getImage();
             robot.setDucked(false);
             break;
 
@@ -203,21 +242,23 @@ public class StartingClass extends Applet implements Runnable, KeyListener {
     public void paint(Graphics g) {
         g.drawImage(this.background, bg1.getBgX(), bg1.getBgY(), this);
         g.drawImage(this.background, bg2.getBgX(), bg2.getBgY(), this);
-        
+
         List<?> projectiles = this.robot.getProjectiles();
         for (Object object : projectiles) {
             Projectile p;
-            if(object instanceof Projectile){
+            if (object instanceof Projectile) {
                 p = (Projectile) object;
                 g.setColor(Color.YELLOW);
                 g.fillRect(p.getX(), p.getY(), 10, 5);
             }
         }
-        
+
         g.drawImage(this.currentSprite, this.robot.getCenterX() - 61,
                 this.robot.getCenterY() - 63, this);
-        g.drawImage(this.heliboy, this.hb.getCenterX()-48, this.hb.getCenterY()-48, this);
-        g.drawImage(this.heliboy, this.hb2.getCenterX()-48, this.hb2.getCenterY()-48, this);
+        g.drawImage(this.hanim.getImage(), this.hb.getCenterX() - 48,
+                this.hb.getCenterY() - 48, this);
+        g.drawImage(this.hanim.getImage(), this.hb2.getCenterX() - 48,
+                this.hb2.getCenterY() - 48, this);
     }
 
     /**
