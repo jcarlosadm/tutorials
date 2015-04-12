@@ -4,9 +4,11 @@ import java.awt.Rectangle;
 
 public class Enemy {
 
-    private int maxHealth, currentHealth, power, speedX, centerX, centerY;
+    private int power, speedX, centerX, centerY;
     private Background bg = StartingClass.getBg1();
     public Rectangle r = new Rectangle(0, 0, 0, 0);
+    
+    public int health = 5;
 
     public void update() {
         this.centerX += this.speedX;
@@ -36,36 +38,6 @@ public class Enemy {
     public void attack() {
         // TODO Auto-generated method stub
 
-    }
-
-    /**
-     * @return the maxHealth
-     */
-    public int getMaxHealth() {
-        return this.maxHealth;
-    }
-
-    /**
-     * @param maxHealth
-     *            the maxHealth to set
-     */
-    public void setMaxHealth(int maxHealth) {
-        this.maxHealth = maxHealth;
-    }
-
-    /**
-     * @return the currentHealth
-     */
-    public int getCurrentHealth() {
-        return this.currentHealth;
-    }
-
-    /**
-     * @param currentHealth
-     *            the currentHealth to set
-     */
-    public void setCurrentHealth(int currentHealth) {
-        this.currentHealth = currentHealth;
     }
 
     /**

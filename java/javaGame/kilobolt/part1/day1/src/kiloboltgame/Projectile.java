@@ -19,28 +19,41 @@ public class Projectile {
     public void update() {
         this.x += this.speedX;
         r.setBounds(this.x, this.y, 10, 5);
-        
+
         if (this.x >= 800) {
             this.visible = false;
         }
 
-        if (x < 801){
+        if (x < 800) {
             this.checkCollision();
         }
     }
 
     private void checkCollision() {
-        if(r.intersects(StartingClass.hb.r)){
+        if (r.intersects(StartingClass.hb.r)) {
             visible = false;
-            StartingClass.score += 1;
-        }
-        
-        if (r.intersects(StartingClass.hb2.r)){
-            visible = false;
-            StartingClass.score += 1;
+            if (StartingClass.hb.health > 0) {
+                StartingClass.hb.health -= 1;
+            }
+            if (StartingClass.hb.health == 0) {
+                StartingClass.hb.setCenterX(-100);
+                StartingClass.score += 5;
 
+            }
         }
-        
+
+        if (r.intersects(StartingClass.hb2.r)) {
+            visible = false;
+            if (StartingClass.hb2.health > 0) {
+                StartingClass.hb2.health -= 1;
+            }
+            if (StartingClass.hb2.health == 0) {
+                StartingClass.hb2.setCenterX(-100);
+                StartingClass.score += 5;
+
+            }
+        }
+
     }
 
     /**
