@@ -7,7 +7,7 @@ public class Enemy {
 
     public void update() {
         this.centerX += this.speedX;
-        this.speedX = this.bg.getSpeedX();
+        this.speedX = this.bg.getSpeedX()*5;
     }
 
     public void die() {
