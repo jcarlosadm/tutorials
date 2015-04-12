@@ -1,4 +1,4 @@
-package tilemap;
+package test.tilemap;
 
 import java.applet.Applet;
 import java.awt.Color;
