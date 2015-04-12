@@ -14,10 +14,16 @@ public class Tile {
 
         this.type = typeInt;
 
-        if (this.type == 1) {
-            this.tileImage = StartingClass.tileocean;
-        } else if (this.type == 2) {
+        if (this.type == 5) {
             this.tileImage = StartingClass.tiledirt;
+        } else if (this.type == 8) {
+            this.tileImage = StartingClass.tilegrassTop;
+        } else if (this.type == 4) {
+            this.tileImage = StartingClass.tilegrassLeft;
+        } else if (this.type == 6) {
+            this.tileImage = StartingClass.tilegrassRight;
+        } else if (this.type == 2) {
+            this.tileImage = StartingClass.tilegrassBot;
         }
     }
 
