@@ -19,6 +19,9 @@ public class BasicGraphics extends ApplicationAdapter {
 	
 	@Override
 	public void create () {
+	    System.out.println("width: "+Gdx.graphics.getWidth());
+	    System.out.println("height: "+Gdx.graphics.getHeight());
+	    
 		batch = new SpriteBatch();
 		
 		textureAtlas = new TextureAtlas(Gdx.files.internal("data/spritesheet.atlas"));
