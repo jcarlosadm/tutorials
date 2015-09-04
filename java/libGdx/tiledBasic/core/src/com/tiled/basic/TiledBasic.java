@@ -30,7 +30,6 @@ public class TiledBasic extends ApplicationAdapter implements InputProcessor {
         tiledMap = new TmxMapLoader().load("map.tmx");
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         Gdx.input.setInputProcessor(this);
-        
     }
 
     @Override
