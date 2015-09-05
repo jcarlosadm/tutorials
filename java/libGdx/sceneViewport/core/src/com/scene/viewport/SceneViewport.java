@@ -6,8 +6,10 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.utils.ScissorStack;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class SceneViewport extends ApplicationAdapter {
@@ -42,7 +44,22 @@ public class SceneViewport extends ApplicationAdapter {
 	        //System.out.println(this.getStage().getViewport().getWorldHeight());
 	        //float x = this.getStage().getViewport().getScreenX();
 	        //float y = this.getStage().getViewport().getScreenY();
+	        
+	        /*Rectangle scissors = new Rectangle();
+	        Rectangle clipBounds = new Rectangle(this.getStage().getCamera().position.x
+	                - this.getStage().getCamera().viewportWidth/2, 
+	                this.getStage().getCamera().position.y 
+	                - this.getStage().getCamera().viewportHeight/2, 
+	                this.getStage().getCamera().viewportWidth,
+	                this.getStage().getCamera().viewportHeight);
+	        ScissorStack.calculateScissors(this.getStage().getCamera(), 
+	                batch.getTransformMatrix(), clipBounds, scissors);
+	        ScissorStack.pushScissors(scissors);
+	        */
 	        batch.draw(this.texture, 0, 0);
+	        /*batch.flush();
+	        
+	        ScissorStack.popScissors();*/
 	    }
 	}
 	
@@ -83,7 +100,19 @@ public class SceneViewport extends ApplicationAdapter {
         }
 		
 		//this.stage.getCamera().translate(1f, 0, 0);
-		
+		Rectangle scissors = new Rectangle();
+        Rectangle clipBounds = new Rectangle(this.stage.getCamera().position.x
+                - this.stage.getCamera().viewportWidth/2, 
+                this.stage.getCamera().position.y 
+                - this.stage.getCamera().viewportHeight/2, 
+                this.stage.getCamera().viewportWidth,
+                this.stage.getCamera().viewportHeight);
+        ScissorStack.calculateScissors(this.stage.getCamera(), 
+                this.stage.getBatch().getTransformMatrix(), clipBounds, scissors);
+        ScissorStack.pushScissors(scissors);
 		this.stage.draw();
+		this.stage.getBatch().flush();
+        
+        ScissorStack.popScissors();
 	}
 }
