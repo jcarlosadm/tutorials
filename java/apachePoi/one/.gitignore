@@ -1,0 +1,9 @@
+/bin/
+/lib/
+/docs/
+/doc/
+
+.classpath
+.project
+.settings
+.settings/
