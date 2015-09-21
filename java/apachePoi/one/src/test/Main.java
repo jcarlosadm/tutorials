@@ -31,7 +31,12 @@ public class Main {
                     
                     switch (cell.getCellType()) {
                     case Cell.CELL_TYPE_STRING:
-                        System.out.print(cell.getStringCellValue() +"[[" +cell.getColumnIndex() +"]]" +"\t");
+                        String link = "";
+                        if (cell.getHyperlink() != null && cell.getColumnIndex() == 3) {
+                            link = cell.getHyperlink().getAddress();
+                        }
+                        System.out.print(cell.getStringCellValue() +"[[" +cell.getColumnIndex() +"]] " 
+                    +link+" \t");
                         break;
                     case Cell.CELL_TYPE_NUMERIC:
                         System.out.print(cell.getNumericCellValue() + "[[" +cell.getColumnIndex() + "]]" +"\t");
