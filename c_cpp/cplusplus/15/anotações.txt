@@ -1,0 +1,23 @@
+http://www.cplusplus.com/doc/tutorial/other_data_types/
+
+usando typedef você pode definir um novo tipo com base em um tipo antigo:
+typedef int inteiro;
+ou então você pode usar using:
+using inteiro = int;
+
+Em C e em c++ existe o union, que parece e é declarado da mesma forma que uma estrutura. A diferença é que union aloca memória do maior tipo encontrado nela. Isso quer dizer que você só pode usar um membro por vez. Quando usar um membro diferente, um membro anterior será "apagado". qual a vantagem de usar unions? imagine o caso de membros parecidos, mas com características de armazenamento diferentes:
+union coin{
+	float dolar;
+	int yen;
+};
+A vantagem de usar union neste caso é simplesmente poder dolar ou yen, dependendo da situação, ou seja, você não pode usar ambos ao mesmo tempo.
+
+unions para podem ter declarações anônimas. veja os arquivos unions02.cpp e unions03.cpp para mais detalhes.
+
+Existe um tipo que enumera variáveis automaticamente: enum. você pode declarar enum como um tipo e como um objeto. Os seus membros são enumerados automaticamente a partir do zero (mas você pode usar o operador de atribuição para mudar a enumeração dos membros da maneira que desejar). por exemplo:
+enum colors{red=2,blue,black,yellow=100}my_color;
+é um enumerador em que eu posso declarar uma variável do tipo colors para receber red,blue,black ou yellow (não pode ser outra coisa senão os membros do enum). ou então posso usar o objeto my_colors para receber esses valores (não é necessário declarar). de qualquer forma, red é igual a 2, blue é igual a 3, black é igual a 4 e yellow é igual a 5.
+
+enum é útil quando queremos evitar atribuir índices sem significado no contexto do programa, facilitando a execução de grandes projetos.
+
+

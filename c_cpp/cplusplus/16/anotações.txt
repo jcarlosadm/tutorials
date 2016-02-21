@@ -1,0 +1,21 @@
+http://www.cplusplus.com/doc/tutorial/classes/
+
+classes são como estruturas, mas elas também podem comportar funções membros.
+
+(uma observação: sim, dá para fazer isso com estruturas, bastando usar ponteiros para funções, mas acontece que classes possuem outras funcionalidades, como por exemplo herança; veremos isso mais adiante)
+
+Na declaração de uma classe, você pode declarar o tipo da classe e um ou mais objetos:
+class class_name{
+	access1:
+		member1;
+	access2:
+		member2;
+}object1;
+Veja que o tipo é class_name e o objeto é object1 (embora isso seja possível, o melhor é criar os objetos com o nome da classe). O access1 e access2 são os acessos possíveis dos membros que vem depois. c++ permite os seguintes acessos:
+public: o membro pode ser acessado em qualquer lugar onde o objeto é visível.
+private: o membro só pode ser acessado dentro da classe (padrão se você não definir o acesso).
+protected: o membro só pode ser acessado dentro da própria classe ou de classes derivadas dela.
+
+Com uma classe é possível instanciar diversos objetos.
+
+

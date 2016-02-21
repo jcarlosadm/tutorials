@@ -1,0 +1,55 @@
+http://www.cplusplus.com/doc/tutorial/pointers/
+
+O & é um operador de referência. Você pode usar antes de uma variável para retornar o seu endereço na memória. & pode ser traduzido como "endereço de". Uma variável que guarda o endereço de outra variável é denominada ponteiro.
+
+O * é denominado operador de ponteiro (claro, você já usa o mesmo para realizar multiplicações, mas esse é outro uso). Você pode ler esse operador como "valor do ponteiro que aponta para". Se usar o * antes de um ponteiro, o valor do local apontado que é retornado, não o endereço.
+
+Para declarar um ponteiro, você declara um tipo o operador * e o nome do ponteiro:
+int * my_pointer;
+
+Para usar um ponteiro, você o iguala ao endereço da variável para o qual deseja apontar:
+my_pointer = &my_var;
+Agora você pode mudar o conteúdo da variável onde o ponteiro aponta:
+*my_pointer = 10;
+
+Sempre ajuda desenhar diagramas quando se lida com operações complicadas de ponteiros (quem já vem de C, os ponteiros são exatamente da mesma forma)
+
+arrays são ponteiros que apontam para o seu primeiro elemento. logo, a seguinte operação é válida:
+my_pointer = my_array;
+
+Você pode fazer uma aritmética de ponteiros num array. as duas linhas abaixo são equivalentes:
+my_array[5]=0;
+*(my_array + 5) = 0;
+
+Aliás, as seguintes linhas demostram um exemplo de uso de aritmética de ponteiro:
+char *mychar;
+short *myshort;
+long *mylong;
+++mychar;
+++myshort;
+++mylong;
+nas três últimas linhas, mychar incrementa o seu endereço em 1 byte (tipo char), myshort incrementa 2 bytes (tipo short) e mylong incrementa 4 bytes (tipo long). usar os operadores ++ e -- na aritmética de ponteiro pode causar alguma confusão, então tome alguns cuidados:
+*p++ // mesmo que *(p++)
+*++p // mesmo que *(++p)
+++*p // mesmo que ++(*p)
+(*p)++
+
+um ponteiro pode ser constante, com const antes do tipo, o que impedirá de mudar o valor para onde ele aponta. mas é possível um ponteiro constante apontar para uma variável não-contante! essa é uma característica importante pois permite usar ponteiros somente leitura como parâmetros de funções; lembre-se que usar ponteiros como parâmetros de funções sempre é melhor que passar uma variável, pois quando passamos uma variável, uma memória é alocada para todos aqueles dados, enquanto que no caso de ponteiros passamos apenas a referência.
+
+string literals são ponteiros que apontam para o início de uma string:
+const char * foo = "hello";
+
+c++ permite o uso de ponteiros para ponteiros, simbolizado por **:
+char a;
+char *b;
+char **c;
+a = 'z';
+b = &a;
+c = &b;
+Neste caso, c é do tipo char** e possui o endereço de b, *c é do tipo char* e possui o endereço de a (b possui o endereço de a), e **c é do tipo char e possui o valor 'z'.
+
+Você pode usar ponteiros que apontam para nulo quando uma função pode receber mais de um tipo de ponteiro para um mesmo parâmetro. Porém, você deverá usar cast para converter o ponteiro para o tipo apropriado na função.
+
+uma coisa que você deve ter o cuidado é de inicializar um ponteiro. Se não houver como inicializar um ponteiro, atribua a ele o valor nulo, ou seja, NULL, ou nullptr. Isso é necessário, pois senão o ponteiro pode apontar para qualquer lugar da memória.
+
+Existe ainda ponteiros para funções. é exatamente da mesma forma que em C. São importantes, pois permitem passar funções como argumentos de outras funções.

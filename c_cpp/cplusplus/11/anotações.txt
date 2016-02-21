@@ -1,0 +1,12 @@
+http://www.cplusplus.com/doc/tutorial/ntcs/
+
+strings são sequencias de caracteres, ou seja, uma string é um array do tipo char. Porém, é necessário, dentro do array, usar um espaço para determinar o fim da string. O fim da sequencia é determinado pelo caractere nulo (\0);
+
+Você pode inicializar uma string de diversas formas:
+char myName[] = {'c','a','r','l','o','s','\0'};
+char myName[] = "carlos";
+No segundo caso, o caractere nulo é inserido automaticamente. Porém, essas operações só são possíveis durante a inicialização. Depois de inicializadas as variáveis, você não pode mais usar o operador de atribuição, devendo recorrer a biblioteca string para fazer operações atribuição.
+
+Usar o tipo string (para usar esse tipo, inclua a biblioteca string) permite ter strings com tamanho dinâmico. veja o código string01.cpp.
+
+

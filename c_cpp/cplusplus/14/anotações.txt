@@ -1,0 +1,28 @@
+http://www.cplusplus.com/doc/tutorial/structures/
+
+estruturas em C podem ter o uso facilitado por meio de typedef. Em c++, não é necessário usar typedef:
+struct movie {
+	string name;
+	int rating;
+};
+movie jango;
+jango.name.assign("Jango");
+jango.rating = 5;
+
+Você pode ainda definir objetos que usam a estrutura definida após a segunda chaves (separe os objetos com o uso de vírgulas):
+struct movie {
+	string name;
+	int rating;
+}jango;
+jango.name.assign("Jango");
+jango.rating = 5;
+
+Você também pode usar ponteiros para estruturas. Isso é importante pois permite que se passe estruturas para funções sem novas alocações de memória. os arquivos struct03.cpp e struct04.cpp possuem duas maneiras diferentes de se passar struct por referência para funções (veja que se usar o operador *, deve-se usar -> para acessar os membros da struct). o arquivo struct05.cpp usa ponteiros do tipo da struct e usa alocação dinâmica.
+
+As duas linhas seguintes são equivalentes:
+pmovie->title;
+(*pmovie).title;
+
+estruturas também podem contem outras estruturas. Isso é importante quando desejamos estruturas mais complexas e podemos dividir em diversas estruturas, facilitando a tarefa.
+
+Também podemos ter ponteiros dentro de uma estrutura. Se usar alocação dinâmica com esses ponteiros, tenha o cuidado de desalocar a memória depois.

@@ -1,0 +1,19 @@
+http://www.cplusplus.com/doc/tutorial/arrays/
+
+Você pode inicializar um array usando chaves:
+int myarray[5] = {1,2,3,4,5};
+Mas você não precisa definir todos os valores. De fato, os valores que você não definiu são inicializados com zero. você pode iniciliza com zero todas as posições de um array com:
+int myarray[5] = {};
+
+Um array também pode ser declarado sem definir um tamanho inicial, apenas por atribuição:
+int myarray[] = {1,2,3,4,5};
+Após a inicialização, o array terá o seu tamanho definido (neste caso, 5).
+
+na inicialização de um array, você não precisa usar o sinal de igualdade.
+int myarray[]{1,2,3,4,5};
+
+na passagem de um array para uma função, você pode usar array[], onde o tamanho é definido quando você passa o array. Quando você desejar passar arrays multidimensionais como parâmetro, deverá definir a segunda ou enésima dimensão depois da primeira, como array[][2][3].
+
+Existe uma biblioteca, array, com funções membros diversas. veja http://www.cplusplus.com/reference/array/array/ para mais detalhes. o arquivo array01.cpp possui um exemplo de uso desta biblioteca.
+
+

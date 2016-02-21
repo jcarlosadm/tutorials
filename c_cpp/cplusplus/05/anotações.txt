@@ -1,0 +1,15 @@
+http://www.cplusplus.com/doc/tutorial/basic_io/
+
+A saída padrão do c++ é cout. Você ainda pode usar printf, principalmente por que é mais fácil de formatar números com ponto flutuante, mas dá para fazer isso com cout também, através da função setprecision(number), por meio da biblioteca iomanip. porém é realmente melhor formatar com printf.
+
+O cout permite alternar entre strings e variáveis, o que torna o seu uso prático. Ele não dará quebra de linha; para isso use "\n" ou endl no final de cout.
+
+cout usa o operador << para cada string ou variável a ser mostrada no dispositivo de saída.
+
+A entrada padrão é cin. cin usa o operador >> para cada variável a ser preenchida com a entrada do usuário.
+
+cin irá capturar os caracteres digitados até encontrar o primeiro espaço. para pegar strings com espaços, use getline(cin, variable), onde variable é uma variável do tipo string.
+
+por meio da biblioteca sstream, você pode converter uma string em valor numérico, e vice-e-versa. Para mais detalhes, veja a biblioteca no site cplusplus
+
+

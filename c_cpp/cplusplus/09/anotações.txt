@@ -1,0 +1,20 @@
+http://www.cplusplus.com/doc/tutorial/namespaces/
+
+Escopo é a visibilidade de uma entidade (variável, função ou tipos compostos). Uma entidade declarada fora de qualquer bloco é de escopo global, pois pode ser vista em qualquer lugar. Já uma entidade dentro de algum bloco é de escopo local.
+
+Você pode declarar uma dada variável com o mesmo nome em um bloco mais interno, tornando o nome desta variável local naquele bloco. Fora do bloco mais interno, a variável perde o seu valor local (analise bem o código scope01.cpp da pasta), voltando ao escopo que tinha anteriormente.
+
+Você pode ainda alternar entre o escopo local e global (apenas global) de variáveis de mesmo nome com o operador de escopo :: (veja o código scope02.cpp).
+
+namespaces, ou espaço de nomes, é um escopo em que você define entidades para usar em seu programa. a sintaxe de namespaces é simples, basta digitar namespace mais o seu identificador, e definir as entidades membros entre chaves. Para acessar um membro do namespace, basta digitar identificar::membro (veja o código namespace01.cpp). Uma vez declarados, namespaces podem ser extendidos posteriormente, ou seja, você pode "redeclarar" o namespace com novos membros, e eles serão adicionados com os membros anteriores.
+
+Você ainda pode usar a palavra reservada using para importar um membro de um namespace para um bloco, e usar esse membro normalmente, sem a necessidade do operador de escopo. Ou ainda pode usar
+using namespace
+para importar todos os membros de um namespace. Nós fazemos isso para importar cout e cin do namespace std. (veja o código namespace02.cpp). Quando você sai do escopo, a importação de membros usando using não é mais válida.
+
+namespaces podem ser renomeados:
+namespace new_name = currentname;
+
+Variáveis globais e de namespaces são alocadas para toda a duração do programa. Isso é conhecido como armazenamento estático. As variáveis locais possuem armazenamento automático. Variáveis com armazenamento estático não inicilizadas começam com valor zero. Já variáveis com armazenamento automático não inicializadas começam com lixo.
+
+

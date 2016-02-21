@@ -1,0 +1,5 @@
+http://www.cplusplus.com/doc/tutorial/control/
+
+no loop for, você pode usar vírgula para inicializar mais de uma variável, assim como incrementar/decrementar mais de uma variável no final de cada loop (na verdade, você pode fazer mais de uma expressão). Em c++, ao contrário de C, você pode criar a variável de controle e inicializá-la dentro do for.
+
+

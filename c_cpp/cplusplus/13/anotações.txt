@@ -1,0 +1,18 @@
+http://www.cplusplus.com/doc/tutorial/dynamic/
+
+Em C, para alocar memória usamos malloc, calloc e realloc, e free para liberar. Em c++ podemos continuar a usar essas funções, mas existe outra alternativa: new e delete. Esses dois operadores podem ser usados por meio da biblioteca new, e permitem a alocação dinâmica de memória.
+
+o operador new permite alocar um bloco de memória. você usa a palavra new mais o tipo para alocar um só bloco, ou adiciona colchetes com um valor inteiro maior que 1 para alocar mais de um bloco.
+int *p = nullptr;
+p = new int[3];
+Ou então:
+p = new int;
+
+Após a memória ser utilizada, você precisa liberar a mesma. Neste caso, use o operador delete mais o ponteiro, ou delete mais colchetes vazio mais ponteiro. O colchetes vazio indica que você estará deletando todo o bloco. se não colocar o colchetes, você só estará deletando um único elemento, e o restante continuará alocado (o que pode gerar memory leak).
+delete[] pointer;
+
+Para tratamento de excessões, quando a alocação de memória não é bem sucedida, você pode usar nothrow, e então verificar se o ponteiro é nulo:
+p = new (nothrow) int[5];
+if(p==nullptr)cout<<"memoria nao alocada"<<endl;
+
+

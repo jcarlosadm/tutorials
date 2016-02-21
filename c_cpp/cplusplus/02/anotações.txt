@@ -1,0 +1,7 @@
+http://www.cplusplus.com/doc/tutorial/variables/
+
+c++ possui os mesmos tipos de c, e mais alguns. Um deles é bool, o tipo booleano, que possui valor true ou false.
+
+Para usar o tipo string, você deve incluir a biblioteca padrão string. É possível mudar o conteúdo da variável do tipo string a qualquer momento com o operador de atribuição (um processo mais complicado em C).
+
+

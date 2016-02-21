@@ -1,0 +1,15 @@
+http://www.cplusplus.com/doc/tutorial/functions/
+
+funções em c++ são como funções em c, mas você pode fazer outras coisas em c++.
+
+Sabemos como passar variáveis por referência em C. Em c++, essa passagem pode ser facilitada, pois o trabalho de fazer a referência é feito nos parâmetros da função.
+int funcao (int &x)
+{
+	//
+}
+Ou seja, as variáveis são passadas normalmente na implementação:
+funcao(variavel);
+
+Passar argumentos por referência custa menos em termos de memória do que passar por valor. Se você deseja passar uma variável por referência mas não quer que a mesma seja modificada, use a palavra reservada const antes do tipo do parâmetro.
+
+Ao contrário de C, em c++ podemos definir parâmetros opcionais, que são colocados por último na ordem de parâmetros. Um parâmetro opcional possui um valor padrão, definido com o sinal de atribuição e um valor.

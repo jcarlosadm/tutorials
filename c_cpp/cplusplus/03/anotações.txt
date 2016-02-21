@@ -1,0 +1,5 @@
+http://www.cplusplus.com/doc/tutorial/constants/
+
+você pode definir constantes com a palavra reservada const. Essa palavra impede mudanças na variável definida.
+
+outra maneira de definir constantes em c++ é usando #define, da mesma forma que em C.

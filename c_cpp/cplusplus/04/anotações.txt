@@ -1,0 +1,11 @@
+http://www.cplusplus.com/doc/tutorial/operators/
+
+o operador ternário permite, em uma única linha, escrever uma expressão condicional.
+
+existe o operador de cast, que é uma forma explícita de definição de um valor. por exemplo, se você quiser que o número 3 seja tratado como float você deve fazer:
+(float) 3;
+O que fará com que 3 seja tratado como float. cast é bastante usado em operações com ponteiros, quando alocamos memória por meio de malloc.
+
+Você pode usar o sizeof() para descobrir o tamanho em bytes de uma variável, da mesma forma que em C.
+
+

@@ -1,0 +1,12 @@
+http://www.cplusplus.com/doc/tutorial/program_structure/
+
+compilação (linux)
+g++ program.cpp -o program
+
+execução (linux)
+./program
+
+c++ e c
+Primeiro, as bibliotecas são diferentes. Você indica as bibliotecas em c++ sem extensão. A biblioteca de entrada padrão em c++ é a iostream. Segundo que você precisa usa std mais o operador de escopo "::" para usar os dispositivos de entrada e saída padrão (cout e cin). Você pode evitar isso usando "using namespace std;" no início, antes de main().
+
+

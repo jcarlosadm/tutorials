@@ -1,0 +1,7 @@
+http://www.cplusplus.com/doc/tutorial/functions2/
+
+Em c++, duas funções podem ter o mesmo nome se tiverem parâmetros diferentes (basta um diferente, mesmo que seja o tipo). Isso se chama sobrecarregamento de funções (overload). O que determina qual função é chamada depende dos parâmetros usados.
+
+Se você tem uma função sobrecarregada onde só se muda o tipo de retorno e/ou os tipos dos argumentos (não precisa ser todos os argumentos, pode ser apenas um), mas o corpo da função é exatamente o mesmo para cada versão da função, talvez seja melhor usar um modelo de função (function template). veja o código da pasta para ter uma ideia.
+
+Ao invés de um tipo, um modelo de função pode receber um valor.
